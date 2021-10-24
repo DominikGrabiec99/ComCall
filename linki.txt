@@ -1,0 +1,70 @@
+Photo by <a href="https://unsplash.com/@jrkorpa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jr Korpa</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+https://www.pngwing.com/en/free-png-bxzjz
+https://www.pngwing.com/en/free-png-nkjhc
+https://www.pngwing.com/en/free-png-zwleb
+https://www.pngwing.com/en/free-png-yczpj
+https://pl.pngtree.com/freepng/contact-our-male-customer-service_5412873.html\
+https://pl.pngtree.com/freepng/modern-flat-design-concept-of-team-work-design-with-characters-in-meeting-and-presentation-can-use-forbusiness-marketing-content-strategy-landing-page-web-design-flat-vector-illustration_5332905.html
+<a href="https://www.freepik.com/vectors/background">Background vector created by vectorpocket - www.freepik.com</a>
+<a href='https://www.freepik.com/vectors/background'>Background vector created by coolvector - www.freepik.com</a>
+<a href="https://pl.pngtree.com/so/opieka-nad-dzieckiem">opieka nad dzieckiem png z pl.pngtree.com</a>
+<a href="https://pl.pngtree.com/so/edukacja">edukacja png z pl.pngtree.com</a>
+
+
+https://www.freepik.com/free-vector/red-wavy-halftone-background_15681043.htm
+
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.flaticon.com/authors/randialamsyah" title="randialamsyah">randialamsyah</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+https://www.youtube.com/watch?v=KUKyTRYGrnU&ab_channel=EstebanCodes
+
+
+const dayofWeekned = [
+  'poniedziałek',
+  'wtorek',
+  'środa',
+  'czwartek',
+  'piątek',
+  'sobota',
+  'niedziela'
+];
+
+const [arrayCourse, setArrayCourse] = useState([]);
+  useEffect(() => {
+    async function getCoursesArray() {
+      setArrayCourse(await getCoursesByUserId(user.uid));
+    }
+
+    getCoursesArray();
+  }, []);
+
+  const getMondays = (day) => {
+    const d = new Date();
+    const month = d.getMonth();
+    const dayOfWeek = [];
+
+    d.setDate(day);
+
+    while (d.getDay() !== day) {
+      d.setDate(d.getDate() + 1);
+    }
+
+    while (d.getMonth() === month) {
+      dayOfWeek.push(new Date(d.getTime()));
+      d.setDate(d.getDate() + 7);
+    }
+
+    return dayOfWeek;
+  };
+
+  arrayCourse.map((course) => {
+    console.log(getMondays(dayofWeekned.indexOf(course.day)));
+    return null;
+  });

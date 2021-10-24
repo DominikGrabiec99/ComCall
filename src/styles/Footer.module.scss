@@ -1,0 +1,140 @@
+.footer {
+  background-color: rgb(22, 22, 22);
+  min-height: 30vh;
+  width: 100%;
+  padding: 1.5rem 0;
+  color: rgb(201, 199, 199);
+
+  //social media
+
+  &__social-media {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__title-social {
+    font-size: 1.5rem;
+  }
+
+  &__social-icons-box {
+    margin: 0.5rem 0;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+  }
+
+  &__icon-box {
+    margin: 0 0.4rem ;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+
+    @media (min-width: 1000px) {
+     height: 3.3rem;
+     width: 3.3rem;
+    }
+
+    &:hover {
+      background-color: rgb(209, 208, 208);
+    }
+  }
+
+  &__social-icon {
+    width: 60%;
+
+    @media (min-width: 1000px) {
+      width: 80%;
+    }
+  }
+
+  // main info
+
+  &__footer-info {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    @media (min-width: 1000px) {
+      grid-template-columns: 3.5fr 1.5fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__footer-box {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    @media (min-width: 1000px) {
+      flex-direction: row;
+    }
+  }
+
+  &__info-title {
+    margin: 0.5rem 0;
+
+    @media (min-width: 1000px) {
+      margin: 1rem 0 0 0;
+    }
+  }
+
+  &__block-info-link {
+    margin: 0.4rem 0;
+  }
+
+  &__info-link {
+    color: rgb(146, 145, 145);
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  //subscribe
+
+  &__subscribe-text {
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: rgb(231, 231, 231);
+  }
+
+  &__subscribe-input {
+    border: none;
+    background-color: rgb(48, 47, 47);
+    padding: 0.4rem 0.5rem;
+    font-size: 1rem;
+    outline: none;
+    color: rgb(231, 231, 231);
+
+    @media (min-width: 1000px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__subscribe-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    background-color: rgb(243, 35, 35);
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(255, 70, 70);
+    }
+
+    @media (min-width: 1000px) {
+      font-size: 1.2rem;
+    }
+  }
+}

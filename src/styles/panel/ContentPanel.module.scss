@@ -1,0 +1,8 @@
+.content {
+  overflow: auto;
+  position: relative;
+
+  @media (min-width: 950px) {
+    order: 2;
+  }
+}

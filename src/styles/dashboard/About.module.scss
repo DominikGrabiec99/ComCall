@@ -1,0 +1,57 @@
+.about {
+  min-height: 100vh;
+  width: 100%;
+  background: url('./main-page.jpg') center no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1000px) {
+    background-size: 100%;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__main-div {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-shadow: 1px 0px 1px;
+
+    @media (min-width: 1000px) {
+      padding: 9rem;
+    }
+  }
+
+  &__div-help {
+    display: none;
+    @media (min-width: 1000px) {
+      display: block;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    @media (min-width: 1000px) {
+      text-align: left;
+      font-size: 3rem;
+    }
+  }
+
+  &__title-name {
+    color: rgb(145, 105, 240);
+  }
+
+  &__title-p {
+    color: white
+  }
+
+  &__title-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+  }
+}

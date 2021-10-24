@@ -1,0 +1,341 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  height: 83vh;
+
+  @media (min-width: 950px) {
+    height: 91.4vh;
+  }
+
+  @media (max-height: 390px) {
+    height: 80vh;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 0%;
+    flex-shrink: 1;
+  }
+
+  //header
+
+  &__header-calendar-container {
+    display: flex;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__header-box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__header-month {
+    font-size: 1rem;
+    color: rgb(226, 226, 226);
+
+    @media (min-width: 300px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__header-calendar-text {
+    color: rgb(160, 160, 160);
+    font-size: 1.1rem;
+
+    @media (min-width: 300px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__header-today {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none;
+    margin-bottom: 0.2rem;
+
+    @media (min-width: 350px) {
+      display: block;
+      font-size: 0.9rem;
+
+    }
+  }
+
+  &__header-arrow {
+    cursor: pointer;
+    color: #dddddd;
+  }
+
+  &__header-button {
+    background-color: transparent;
+    border: none;
+  }
+
+  //month
+
+  &__month-container {
+    flex: 1 1 0%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+  }
+
+  //day 
+
+  &__day-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(48, 48, 48);
+    cursor: pointer;
+  }
+
+  &__day-container:hover &__add-mess-btn {
+    opacity: 1;
+    overflow: visible;
+  }
+
+  &__header-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__day-text-ddd {
+    font-size: .875rem;
+    margin-top: 0.25rem;
+    font-weight: 700;
+    color: rgb(172, 176, 230);
+
+    &-week {
+      color: rgb(134, 142, 252);
+    }
+  }
+
+  &__day-text-another-month {
+    color: rgb(82, 82, 82);
+  }
+
+  &__day-text-DD {
+    font-size: .875rem;
+    padding: 0.25rem;
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+
+  &__actual-day {
+    background-color: rgb(84, 84, 253);
+    color: white;
+    border-radius: 50%;
+    width: 1.75rem;
+  }
+
+  &__box-add-mess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__box-add-mess-none {
+    display: none;
+  }
+
+  &__add-mess-btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    flex: 1 1 0%;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__event-box {
+    cursor: pointer;
+    flex: 1 1 0%;
+    width: 100%;
+
+  }
+
+  &__event-box-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.25rem;
+    font-size: .875rem;
+    border-radius: 0.25rem;
+    margin: 0.25rem 0;
+    border: none;
+  }
+
+  //module
+
+  &__module-box {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form-module {
+    background-color: #202020;
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    opacity: 1;
+    z-index: 3;
+
+    @media (min-width: 750px) {
+      width: 80%;
+    }
+
+    @media (min-width: 950px) {
+      width: 50%;
+    }
+
+    @media (min-width: 1200px) {
+      width: 35%;
+    }
+
+    @media (min-width: 1500px) {
+      width: 25%;
+    }
+  }
+
+  &__header-module {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b2b2b;
+    padding: 0.5rem 1rem;
+  }
+
+  &__module-opacity {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
+
+  &__button-module {
+    cursor: pointer;
+  }
+
+  &__section-module {
+    padding: 0.75rem;
+  }
+
+  &__container-input {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  &__module-input {
+    background-color: #202020;
+    border: none;
+    padding: 0.75rem 0.4rem 0.5rem;
+    color: white;
+    width: 100%;
+    font-size: large;
+    font-weight: 700;
+    border-bottom: 2px solid rgb(87, 87, 87);
+    border-radius: 2px;
+
+    &:focus {
+      outline: none;
+      rinng: 0;
+      border-color: rgb(81, 81, 194);
+    }
+  }
+
+  &__module-input-small {
+    font-size: normal;
+    font-weight: 400;
+  }
+
+  &__footer-module {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    background-color: #2b2b2b;
+    padding: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  &__footer-module-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: rgb(71, 71, 199);
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(81, 81, 207);
+    }
+  }
+
+  &__form-error {
+    color: rgb(245, 26, 26);
+    font-size: 0.8rem;
+  }
+
+  &__delete-event {
+    cursor: pointer;
+    color: gray;
+  }
+
+  // label
+
+  &__label-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__label-container {
+    display: flex;
+    gap: 0.3rem
+  }
+
+  &__label-indigo {
+    background-color: rgb(92, 24, 141);
+  }
+
+  &__label-orange {
+    background-color: rgb(197, 126, 19);
+  }
+
+  &__label-green {
+    background-color: rgb(16, 148, 16);
+  }
+
+  &__label-blue {
+    background-color: rgb(44, 44, 204);
+  }
+
+  &__label-red {
+    background-color: rgb(228, 61, 61);
+  }
+
+  &__label-purple {
+    background-color: rgb(187, 22, 187);
+  }
+}

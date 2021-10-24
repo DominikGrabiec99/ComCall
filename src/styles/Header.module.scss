@@ -1,0 +1,90 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  color: white;
+  flex-direction: row;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0.5rem;
+  height: 10vh;
+
+  &__login {
+    position: relative;
+    background-color: rgba(8, 8, 8, 1);
+    height: 8.5vh;
+  }
+
+  @media (min-width: 1000px) {
+    padding: 0.5rem 2.5rem;
+  }
+
+  &__scrool {
+    background-color: rgba(8, 8, 8, 1);
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 0.4rem 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: rgb(32, 52, 240);
+    background-color: white;
+
+    &:hover {
+      background-color: rgb(240, 236, 236);
+    }
+
+     @media (min-width: 1000px) {
+       font-size: 1rem;
+       padding: 0.5rem 1.2rem;
+     }
+  }
+
+  &__logo {
+    height: 8vh;
+  }
+
+  &__button-login {
+    
+    margin-right: 0.2rem;
+    background-color: rgb(32, 52, 240);
+    color: white;
+
+    &:hover {
+      background-color: rgb(52, 71, 241);
+    }
+
+    @media (min-width: 1000px) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__avatar {
+    height: 5vh;
+    margin-right: 1rem;
+  }
+
+  &__signout {
+    height: 5vh;
+  }
+
+  &__button-signout {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+}

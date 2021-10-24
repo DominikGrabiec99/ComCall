@@ -1,0 +1,259 @@
+.statistics {
+  min-height: 100vh;
+  background-color: rgb(14, 14, 14);
+  display: grid;
+  grid-template-rows:  auto auto;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1240px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  // left box
+
+  &__left-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__circle-box {
+    width: 40vh;
+    height: 40vh;
+    
+    @media (max-width: 320px) {
+      padding: 6vw;
+    }
+    
+    @media (max-height: 500px) {
+      width: 80vh;
+      height: 80vh;
+      margin: 8vh 0;
+    }
+
+    @media (min-width: 1240px) {
+      width: 50vh;
+      height: 50vh;
+    }
+  }
+
+  &__circle {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    border: 2px dashed white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__logo-img {
+    width: 40%;
+
+    @media (min-width: 1240px) {
+      width: 50%;
+    }
+  }
+
+  //square in circle
+  &__square {
+    position: absolute;
+    width: calc(40vh / 1.4);
+    height: calc(40vh / 1.4);
+
+
+    @media (max-height: 500px) {
+      width: calc(80vh / 1.4);
+      height: calc(80vh / 1.4);
+    }
+
+    @media (min-width: 1240px) {
+      width: calc(50vh / 1.4);
+      height: calc(50vh / 1.4);
+    }
+  }
+
+  //circle
+
+  &__small-circle {
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+
+    @media (max-height: 440px) {
+      height: 4rem;
+      width: 4rem;
+    }
+
+    @media (min-width: 1240px) {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+
+  &__small-circle-top {
+    top: -1.5rem;
+
+    @media (min-width: 1240px) {
+      top: -2.5rem;
+    }
+  }
+
+  &__small-circle-bottom {
+    bottom: -1.5rem;
+
+    @media (min-width: 1240px) {
+      bottom: -2.5rem;
+    }
+  }
+
+  &__small-circle-left {
+    left: -1.5rem;
+
+    @media (min-width: 1240px) {
+      left: -2.5rem;
+    }
+  }
+
+  &__small-circle-right {
+    right: -1.5rem;
+
+    @media (min-width: 1240px) {
+      right: -2.5rem;
+    }
+  }
+
+  &__small-circle-right-bottom {
+    right: 0rem;
+    bottom: 0rem;
+    transform: translate(50%, 50%);
+  }
+
+  &__small-circle-right-top {
+    right: 0rem;
+    top: 0rem;
+    transform: translate(50%, -50%);
+  }
+
+  &__small-circle-left-bottom {
+    left: 0rem;
+    bottom: 0rem;
+    transform: translate(-50%, 50%);
+  }
+
+  &__small-circle-left-top {
+    left: 0rem;
+    top: 0rem;
+    transform: translate(-50%, -50%);
+  }
+
+  &__active-circle {
+    border: solid rgb(0, 15, 231) 4px;
+    height:3.5rem;
+    width: 3.5rem;
+
+     @media (max-height: 440px) {
+       height: 4rem;
+       width: 4rem;
+     }
+
+     @media (min-width: 1240px) {
+       height: 5.5rem;
+       width: 5.5rem;
+     }
+
+  }
+
+  //icon circle
+
+  &__icon-circle {
+    width: 55%;
+  }
+
+  // right box
+
+  &__right-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__box {
+    position: relative;
+    width: 90%;
+
+    @media (min-width: 1240px) {
+      width: 80%;
+    }
+  }
+
+  &__is-visible {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+  }
+
+  &__is-not-visible {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+
+  &__container-description{
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(36, 36, 36);
+    transition: all 1.3s ease;
+  }
+
+  &__title-box {
+    padding: 1rem;
+    border-radius:10px 10px 0 0;
+    width: 100%;
+    min-height: 15vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: flex-end;
+    color: rgb(0, 15, 231);
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
+
+  &__text-box {
+    justify-content: auto;
+    align-self: auto;
+    padding: 1rem;
+    border-radius:0 0 10px 10px;
+    width: 100%;
+    min-height: 25vh;
+    background-color: rgb(82, 82, 82);
+    color: black;
+  }
+
+  &__text-circle {
+    font-size: 1.3rem;
+    color: white;
+  }
+
+  &__img-box {
+    display: none;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10px;
+
+    @media (min-width: 400px) {
+      display: block;
+    }
+    
+  }
+}
