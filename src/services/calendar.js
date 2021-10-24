@@ -19,7 +19,7 @@ export const getMonthFunc = (month = dayjs().month()) => {
   const firsDayOfTheMonth = dayjs(new Date(year, month, 1)).day();
   let currentMonthCount = 0 - firsDayOfTheMonth;
 
-  const daysMatrix = new Array(5).fill([]).map(() =>
+  const daysMatrix = new Array(6).fill([]).map(() =>
     new Array(7).fill(null).map(() => {
       // eslint-disable-next-line no-plusplus
       currentMonthCount++;

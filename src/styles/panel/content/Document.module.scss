@@ -1,0 +1,155 @@
+.document {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  gap: 0.5rem;
+
+  @media (min-width: 950px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  &__listTaks-container {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0.5rem;
+  }
+
+  &__artcile {
+    background-color: rgb(51, 51, 51);
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+
+  &__header-box {
+    border-bottom: 1px solid rgb(133, 133, 133);
+    padding: 0.4rem;
+  }
+
+  &__header-artcile {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: rgb(187, 187, 187);
+    text-align: center;
+  }
+
+  &__task-box {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: rgb(63, 63, 63);
+    padding: 0.3rem 0.4rem;
+    margin: 0.2rem 0;
+    border-radius: 2px;
+  }
+
+  &__task-title {
+    font-size: 1.2rem;
+  }
+
+  &__task-time {
+    font-size: 0.8rem;
+    color: gray;
+  }
+
+  &__task-description {
+    display: block;
+    text-align: justify;
+    font-size: .875rem;
+    color: rgb(214, 214, 214);
+  }
+
+  ///addDocument
+
+  &__addDocument {
+    margin: 0.5rem 1rem;
+
+    @media (min-width: 950) {
+      margin: 0.5rem 2rem;
+    }
+
+    &__header {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid white;
+    }
+
+    &__title {
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    &__description {
+      text-align: justify;
+    }
+
+    &__time {
+      margin: 0.4rem 0;
+      font-size: 1.2rem;
+      color: rgb(47, 144, 209);
+    }
+
+    &__form {}
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+
+  &__add-file-box {
+    display: block;
+    cursor: pointer;
+  }
+
+  &__custom-upload {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    justify-self: start;
+    border: 1px solid white;
+  }
+
+  &__text-add-file {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  &__input-add-file {
+    color: white;
+  }
+
+  &__button-add-file {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(7, 86, 190);
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-icon {
+    margin-left: 0.2rem;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  &__text-too-late {
+    color: rgb(241, 35, 35);
+  }
+
+  &__no-task {
+    text-align: center;
+  }
+
+  &__back-to-list {
+    cursor: pointer;
+    color: rgb(76, 76, 228);
+  }
+}

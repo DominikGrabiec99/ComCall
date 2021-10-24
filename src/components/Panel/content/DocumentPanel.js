@@ -1,5 +1,91 @@
-import React from 'react';
+/* eslint-disable no-nested-ternary */
+import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import bemCssModules from 'bem-css-modules';
+import { getCoursesByUserId } from '../../../services/firebase';
+import UserContext from '../../../context/user';
 
-const DocumentPanel = () => <div>DocumentPanel</div>;
+import ListTasks from './documents/ListTasks';
+import AddDocument from './documents/AddDocument';
+
+// eslint-disable-next-line import/no-named-default
+import { default as DocumentStyles } from '../../../styles/panel/content/Document.module.scss';
+
+const block = bemCssModules(DocumentStyles);
+
+const DocumentPanel = () => {
+  const { user } = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [arrayCourse, setArrayCourse] = useState(null);
+  const [arrayTasks, setArrayTasks] = useState([]);
+  const [currentDocument, setCurrentDocument] = useState({});
+  const [width, setWidth] = useState(0);
+
+  const { id } = useParams();
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      setWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', updateSize);
+
+    updateSize();
+
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    async function getCoursesArray() {
+      setArrayCourse(await getCoursesByUserId(user.uid, setIsLoading));
+    }
+
+    getCoursesArray();
+  }, [user]);
+
+  useEffect(() => {
+    if (arrayCourse) {
+      arrayCourse.map((course) => {
+        course.tasks.map((task) => {
+          task.subject = course.name;
+          if (!arrayTasks.filter((arrTask) => String(arrTask.id) === String(task.id)).length > 0) {
+            setArrayTasks((arr) => [...arr, task]);
+          }
+          return null;
+        });
+        return null;
+      });
+    }
+  }, [arrayCourse]);
+
+  return (
+    <div className={block()}>
+      {width > 950 ? (
+        <>
+          <AddDocument currentDocument={currentDocument} width={width} />
+          <ListTasks
+            arrayTasks={arrayTasks}
+            arrayCourse={arrayCourse}
+            setCurrentDocument={setCurrentDocument}
+            isLoading={isLoading}
+            width={width}
+          />
+        </>
+      ) : id === 'listTasks' ? (
+        <ListTasks
+          arrayTasks={arrayTasks}
+          arrayCourse={arrayCourse}
+          setCurrentDocument={setCurrentDocument}
+          isLoading={isLoading}
+          width={width}
+        />
+      ) : (
+        <AddDocument currentDocument={currentDocument} width={width} />
+      )}
+    </div>
+  );
+};
 
 export default DocumentPanel;

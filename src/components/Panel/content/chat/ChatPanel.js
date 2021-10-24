@@ -30,12 +30,11 @@ const ChatPanel = () => {
   const [userToMessage, setUserToMessage] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const [width, setWidth] = useState(0);
   const scroll = useRef();
   const { id } = useParams();
 
   const { firebase } = useContext(FirebaseContext);
-
-  const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
     function updateSize() {

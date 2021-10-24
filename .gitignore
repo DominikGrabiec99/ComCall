@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 /functions
-# **/src/lib
+**/src/lib
 
 # testing
 /coverage

@@ -39,15 +39,6 @@ export const getUserByUserName = async (userName) => {
   return user;
 };
 
-// export const addEventCalendarToUser = async (userId, event) => {
-//   await firebase
-//     .firestore()
-//     .collection('users')
-//     .where('userId', '==', userId)
-// }
-
-/// Course
-
 export const getCoursesByUserId = async (userId, setIsLoading) => {
   const result = await firebase
     .firestore()

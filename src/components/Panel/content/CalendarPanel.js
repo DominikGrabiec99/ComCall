@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import bemCssModules from 'bem-css-modules';
-import UserContext from '../../../context/user';
 import { getMonthFunc } from '../../../services/calendar';
 import calendarGlobal from '../../../context/calendarGlobal';
 

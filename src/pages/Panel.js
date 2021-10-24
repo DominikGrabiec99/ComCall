@@ -23,6 +23,7 @@ const Panel = () => {
       params.id !== 'chat' &&
       params.id !== 'calendar' &&
       params.id !== 'document' &&
+      params.id !== 'listTasks' &&
       params.id !== 'settings' &&
       params.id !== 'messages'
     ) {

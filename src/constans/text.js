@@ -206,7 +206,7 @@ export const sidebarOption = [
   },
   {
     id: 4,
-    to: 'document',
+    to: 'listTasks',
     text: 'Documents',
     icon: 'description'
   }

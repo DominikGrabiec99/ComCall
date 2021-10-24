@@ -44,6 +44,14 @@ const ContentPanel = () => {
     );
   }
 
+  if (id === 'listTasks') {
+    return (
+      <div className={block()}>
+        <DocumentPanel />
+      </div>
+    );
+  }
+
   if (id === 'document') {
     return (
       <div className={block()}>

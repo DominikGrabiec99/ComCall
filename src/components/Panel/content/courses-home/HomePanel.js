@@ -20,7 +20,6 @@ const HomePanel = () => {
 
     async function getCoursesArray() {
       setArrayCourse(await getCoursesByUserId(user.uid, setIsLoading));
-      // setIsLoading(false);
     }
 
     getCoursesArray();
