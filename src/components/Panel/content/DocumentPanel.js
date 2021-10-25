@@ -19,9 +19,15 @@ const DocumentPanel = () => {
   const [arrayCourse, setArrayCourse] = useState(null);
   const [arrayTasks, setArrayTasks] = useState([]);
   const [currentDocument, setCurrentDocument] = useState({});
+  const [isSend, setIsSend] = useState(false);
   const [width, setWidth] = useState(0);
 
   const { id } = useParams();
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    setIsSend(true);
+  };
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -58,13 +64,23 @@ const DocumentPanel = () => {
         return null;
       });
     }
+    if (arrayTasks.length !== 0) setCurrentDocument(arrayTasks[0]);
   }, [arrayCourse]);
+
+  useEffect(() => {
+    setIsSend(false);
+  }, [currentDocument]);
 
   return (
     <div className={block()}>
       {width > 950 ? (
         <>
-          <AddDocument currentDocument={currentDocument} width={width} />
+          <AddDocument
+            currentDocument={currentDocument}
+            width={width}
+            handleOnSubmit={handleOnSubmit}
+            isSend={isSend}
+          />
           <ListTasks
             arrayTasks={arrayTasks}
             arrayCourse={arrayCourse}
@@ -82,7 +98,12 @@ const DocumentPanel = () => {
           width={width}
         />
       ) : (
-        <AddDocument currentDocument={currentDocument} width={width} />
+        <AddDocument
+          currentDocument={currentDocument}
+          width={width}
+          handleOnSubmit={handleOnSubmit}
+          isSend={isSend}
+        />
       )}
     </div>
   );

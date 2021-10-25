@@ -110,11 +110,17 @@ const ChatPanel = () => {
 
   useEffect(() => {
     async function getAllGroupMessage() {
-      await getAllMessagesByUserId(user.uid, setFirstMessages, setIsLoading, firstMessages);
+      await getAllMessagesByUserId(user.uid, setFirstMessages, setIsLoading);
     }
 
     getAllGroupMessage();
+
+    console.log(firstMessages[0]);
   }, []);
+
+  useEffect(() => {
+    if (firstMessages.length !== 0) setUserToMessage(firstMessages[0]);
+  }, [firstMessages]);
 
   return (
     <div className={block()}>

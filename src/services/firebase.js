@@ -88,12 +88,7 @@ export const getMessagesByUserId = async (userUid, userToMessage, setMessages) =
     });
 };
 
-export const getAllMessagesByUserId = async (
-  userUid,
-  setFirstMess,
-  setIsLoading,
-  firstMessages
-) => {
+export const getAllMessagesByUserId = async (userUid, setFirstMess, setIsLoading) => {
   const getSubCollections = httpsCallable(functions, 'getSubCollections');
 
   getSubCollections({ col: 'messages', doc: userUid })

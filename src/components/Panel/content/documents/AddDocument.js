@@ -9,7 +9,7 @@ import { default as DocumentStyles } from '../../../../styles/panel/content/Docu
 
 const block = bemCssModules(DocumentStyles);
 
-const AddDocument = ({ currentDocument, width }) => {
+const AddDocument = ({ currentDocument, width, handleOnSubmit, isSend }) => {
   const history = useHistory();
 
   if (Object.keys(currentDocument).length === 0) {
@@ -53,7 +53,7 @@ const AddDocument = ({ currentDocument, width }) => {
       <p className={block('addDocument__time')}>
         {isOldTask ? 'Time is up at' : 'Time to end'}: {timeTask}
       </p>
-      <form className={block('addDocument__form')}>
+      <form className={block('addDocument__form')} onSubmit={handleOnSubmit}>
         <div className={block('add-file-box')}>
           <p className={block('text-add-file')}>Add file:</p>
           {!isOldTask ? (
@@ -69,10 +69,17 @@ const AddDocument = ({ currentDocument, width }) => {
           )}
         </div>
         {!isOldTask ? (
-          <button type="submit" className={block('button-add-file')}>
-            Send
-            <span className={`${block('button-icon')} material-icons`}>send</span>
-          </button>
+          <>
+            <button type="submit" className={block('button-add-file')}>
+              Send
+              <span className={`${block('button-icon')} material-icons`}>send</span>
+            </button>
+            {isSend && (
+              <p className={block('text-send')}>
+                This function is only for demonstration due to a database limitation
+              </p>
+            )}
+          </>
         ) : null}
       </form>
     </section>
@@ -83,5 +90,7 @@ export default AddDocument;
 
 AddDocument.propTypes = {
   currentDocument: PropTypes.object,
-  width: PropTypes.number
+  width: PropTypes.number,
+  handleOnSubmit: PropTypes.func,
+  isSend: PropTypes.bool
 };
