@@ -2,7 +2,10 @@
 import React, { useContext, useEffect, useState, useRef, useLayoutEffect } from 'react';
 import bemCssModules from 'bem-css-modules';
 import { useParams } from 'react-router-dom';
+
 import UserContext from '../../../../context/user';
+import FirebaseContext from '../../../../context/firebase';
+
 import {
   getMessagesByUserId,
   getUserByUserName,
@@ -16,7 +19,6 @@ import UsersChat from './UsersChat';
 
 // eslint-disable-next-line import/no-named-default
 import { default as ContentPanelMenuStyles } from '../../../../styles/panel/content/ChatPanel.module.scss';
-import FirebaseContext from '../../../../context/firebase';
 
 const block = bemCssModules(ContentPanelMenuStyles);
 
@@ -114,8 +116,6 @@ const ChatPanel = () => {
     }
 
     getAllGroupMessage();
-
-    console.log(firstMessages[0]);
   }, []);
 
   useEffect(() => {

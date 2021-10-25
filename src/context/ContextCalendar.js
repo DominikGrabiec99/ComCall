@@ -19,8 +19,8 @@ function savedEventsReducer(state, { type, payload }) {
   }
 }
 
-const initEvents = () => {
-  const storageEvents = localStorage.getItem('savedEvents');
+const initEvents = (uid) => {
+  const storageEvents = localStorage.getItem(uid);
   const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
   return parsedEvents;
 };
@@ -30,14 +30,15 @@ const ContextCalendar = ({ children }) => {
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(false);
-  const [courses, setCourses] = useState([]);
 
   const { user } = useContext(UserContext);
 
-  const [savedEvents, dispatchCalEvent] = useReducer(savedEventsReducer, [], initEvents);
+  const helpHook = () => initEvents(user.uid);
+
+  const [savedEvents, dispatchCalEvent] = useReducer(savedEventsReducer, [], helpHook);
 
   useEffect(() => {
-    localStorage.setItem('savedEvents', JSON.stringify(savedEvents));
+    localStorage.setItem(user.uid, JSON.stringify(savedEvents));
   }, [savedEvents]);
 
   useEffect(() => {

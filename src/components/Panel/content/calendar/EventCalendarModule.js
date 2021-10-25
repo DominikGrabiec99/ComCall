@@ -38,7 +38,7 @@ const EventCalendarModule = () => {
     }
 
     if (selectedEvent && !selectedEvent.isEditableInCalendar) {
-      setMessError('Cant edit this message');
+      setMessError('Cant edit this event');
       return;
     }
 

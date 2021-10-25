@@ -11,10 +11,6 @@ const calendarGlobal = createContext({
   savedEvents: [],
   selectedEvent: null,
   setSelectedEvent: () => {}
-  // setLabels: () => {},
-  // labels: [],
-  // updateLabel: () => {},
-  // filteredEvents: []
 });
 
 export default calendarGlobal;

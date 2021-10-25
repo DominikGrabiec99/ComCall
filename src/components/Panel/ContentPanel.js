@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import bemCssModules from 'bem-css-modules';
 import ContextCalendar from '../../context/ContextCalendar';
+import ContextChat from '../../context/ContexChat';
 
 import HomePanel from './content/courses-home/HomePanel';
 import ChatPanel from './content/chat/ChatPanel';
@@ -28,9 +29,11 @@ const ContentPanel = () => {
 
   if (id === 'chat') {
     return (
-      <div className={block()}>
-        <ChatPanel />
-      </div>
+      <ContextChat>
+        <div className={block()}>
+          <ChatPanel />
+        </div>
+      </ContextChat>
     );
   }
 

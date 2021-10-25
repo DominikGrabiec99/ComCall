@@ -32,7 +32,8 @@ const Login = () => {
       history.push(ROUTS.DASHBOARD);
     } catch (e) {
       setPassword('');
-      setError(e.message);
+      const mess = e.message.slice(9, -23);
+      setError(mess);
     }
   };
 
