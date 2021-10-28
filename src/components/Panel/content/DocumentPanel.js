@@ -68,6 +68,11 @@ const DocumentPanel = () => {
   }, [arrayCourse]);
 
   useEffect(() => {
+    console.log(arrayTasks);
+    if (arrayTasks.length !== 0) setCurrentDocument(arrayTasks[0]);
+  }, [arrayTasks]);
+
+  useEffect(() => {
     setIsSend(false);
   }, [currentDocument]);
 

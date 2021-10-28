@@ -1,7 +1,6 @@
 .course {
   display: grid;
-  min-height: 91vh;
-  max-height: 91vh;
+  height: 91vh;
   grid-template-rows: 1fr auto;
   grid-template-columns: auto;
 
@@ -9,12 +8,46 @@
     grid-template-rows: 1fr;
     grid-template-columns: auto 1fr;
   }
-   ///chwilowe////
-   &__courseContent{
+
+   &__content-course {
     overflow: auto;
 
     @media (min-width: 950px) {
       order: 2;
     }
   }
+
+  /// content
+
+  &__container-course {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, 30px) minmax(auto, 83vh) auto;
+    // grid-template-rows: repeat(3, auto);
+
+    @media (min-width: 950px) {
+      grid-template-areas: 
+      'header header header header'
+      'stream stream stream chat'
+      ;
+    }
+  }
+
+  &__header-course {
+    @media (min-width: 950px) {
+      grid-area: header;
+    }
+  }
+
+   &__stream-panel {
+     @media (min-width: 950px) {
+      grid-area: stream;
+     }
+   }
+
+    &__chat-panel {
+      @media (min-width: 950px) {
+        grid-area: chat;
+      }
+    }
 }
