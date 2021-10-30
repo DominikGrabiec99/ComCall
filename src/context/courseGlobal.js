@@ -9,7 +9,9 @@ const courseGlobal = createContext({
   userActual: {},
   setUserActual: () => {},
   userIsInCourseList: false,
-  setUserIsInCourseList: () => {}
+  setUserIsInCourseList: () => {},
+  isLoading: true,
+  setIsLoading: () => {}
 });
 
 export default courseGlobal;

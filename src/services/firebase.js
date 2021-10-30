@@ -144,3 +144,15 @@ export const getAllMessagesByUserId = async (userUid, setFirstMess, setIsLoading
       console.log('detalis:', details);
     });
 };
+
+/// course messages
+
+export const getMessagesCourse = async (courseId, setCourse) => {
+  firebase
+    .firestore()
+    .collection(`courses`)
+    .where('courseId', '==', courseId)
+    .onSnapshot((snapshot) => {
+      setCourse(snapshot.docs.map((doc) => ({ docId: doc.id, ...doc.data() })));
+    });
+};

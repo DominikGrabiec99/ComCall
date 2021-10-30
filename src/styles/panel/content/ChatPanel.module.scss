@@ -154,7 +154,7 @@
     height: calc(75vh - 7vh);
     display: flex;
     flex-direction: column;
-    margin: 0 2vw;
+    margin: 0 0.3rem;
     margin-bottom: 0.2rem;
 
     @media (min-width: 950px) {
@@ -286,6 +286,7 @@
   }
 
   &__no-consersation-text {
+    color: rgb(97, 97, 97);
     text-align: center;
     font-size: 1.1rem;
     margin-top: 1rem;

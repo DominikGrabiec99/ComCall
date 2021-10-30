@@ -147,6 +147,7 @@ const ChatPanel = () => {
               user={user}
               scroll={scroll}
               setIsVisible={setIsVisible}
+              isLoading={isLoading}
             />
             <WriteMessagesPanel
               message={message}

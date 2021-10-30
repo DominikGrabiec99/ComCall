@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
 import bemCssModules from 'bem-css-modules';
 import courseGlobal from '../../context/courseGlobal';
 import UserContext from '../../context/user';
+import { getMessagesCourse } from '../../services/firebase';
 
 import HeaderCourse from './HeaderCourse';
 import StreamPanel from './StreamPanel';
@@ -15,7 +15,20 @@ const block = bemCssModules(CourseStyles);
 
 const ContentCourse = () => {
   const { user } = useContext(UserContext);
-  const { course, userIsInCourseList, setUserCourse } = useContext(courseGlobal);
+  const { course, setCourse, userIsInCourseList, setUserCourse, setIsLoading } =
+    useContext(courseGlobal);
+
+  const { courseId } = course.length !== 0 && course[0];
+
+  useEffect(() => {
+    async function getCourseMess() {
+      if (user && courseId) {
+        await getMessagesCourse(courseId, setCourse, setIsLoading).then(() => setIsLoading(false));
+      }
+    }
+
+    getCourseMess();
+  }, [courseId]);
 
   useEffect(() => {
     setUserCourse(user);

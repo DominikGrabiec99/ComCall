@@ -36,9 +36,9 @@ const AddDocument = ({ currentDocument, width, handleOnSubmit, isSend }) => {
   const day = d.getDate();
   const hour = d.getHours();
   const minuts = d.getMinutes();
-  const timeTask = `${hour > 10 ? hour : `0${hour}`}:${
-    minuts > 10 ? minuts : `0${minuts}`
-  } ${year}-${month > 10 ? month : `0${month}`}-${day > 10 ? day : `0${day}`}`;
+  const timeTask = `${hour > 9 ? hour : `0${hour}`}:${minuts > 9 ? minuts : `0${minuts}`} ${year}-${
+    month > 9 ? month : `0${month}`
+  }-${day > 9 ? day : `0${day}`}`;
 
   const isOldTask = Number(time) < Number(new Date().getTime());
 

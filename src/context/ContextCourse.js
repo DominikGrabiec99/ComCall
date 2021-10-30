@@ -10,6 +10,7 @@ const ContextCourse = ({ children }) => {
   const [userCourse, setUserCourse] = useState([]);
   const [userActual, setUserActual] = useState(null);
   const [userIsInCourseList, setUserIsInCourseList] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function getCourseById() {
@@ -46,7 +47,9 @@ const ContextCourse = ({ children }) => {
         userActual,
         setUserActual,
         userIsInCourseList,
-        setUserIsInCourseList
+        setUserIsInCourseList,
+        isLoading,
+        setIsLoading
       }}
     >
       {children}

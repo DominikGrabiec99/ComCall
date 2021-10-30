@@ -9,7 +9,7 @@
     grid-template-columns: auto 1fr;
   }
 
-   &__content-course {
+  &__content-course {
     overflow: auto;
 
     @media (min-width: 950px) {
@@ -21,33 +21,77 @@
 
   &__container-course {
     display: grid;
+    height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(auto, 30px) minmax(auto, 83vh) auto;
-    // grid-template-rows: repeat(3, auto);
+    grid-template-rows: minmax(auto, 30px) auto auto;
 
     @media (min-width: 950px) {
-      grid-template-areas: 
-      'header header header header'
-      'stream stream stream chat'
+      height: 100%;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: minmax(auto, 30px) 1fr;
+      grid-gap: 0.2rem;
+      grid-template-areas:
+        'header header header header '
+        'stream stream stream chat'
       ;
     }
   }
 
   &__header-course {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(78, 78, 78);
+    background-color: rgb(44, 44, 44);
+    box-shadow: 10px 5px 5px rgb(49, 49, 49);
+    padding: 0.4rem;
+
     @media (min-width: 950px) {
+      padding: 1.2rem;
       grid-area: header;
     }
   }
 
-   &__stream-panel {
-     @media (min-width: 950px) {
-      grid-area: stream;
-     }
-   }
+  &__stream-panel {
 
-    &__chat-panel {
-      @media (min-width: 950px) {
-        grid-area: chat;
-      }
+
+    @media (min-width: 950px) {
+      grid-area: stream;
     }
+  }
+
+  &__chat-panel {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax(1fr, 85vh) minmax(50px, auto);
+    padding: 0 0.2rem;
+    background-color: rgb(26, 26, 26);
+
+
+    @media (min-width: 950px) {
+      padding-right: 0.5rem;
+      grid-area: chat;
+    }
+  }
+
+  ///messages
+
+  &__no-messages {
+    text-align: center;
+    color: rgb(97, 97, 97);
+  }
+
+  &__messages-container {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  ///header
+
+  &__header-name {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 1.3rem;
+  }
 }

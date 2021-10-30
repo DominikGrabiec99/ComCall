@@ -68,8 +68,18 @@ const DocumentPanel = () => {
   }, [arrayCourse]);
 
   useEffect(() => {
-    console.log(arrayTasks);
-    if (arrayTasks.length !== 0) setCurrentDocument(arrayTasks[0]);
+    if (arrayTasks.length !== 0)
+      setCurrentDocument(
+        arrayTasks.sort((a, b) => {
+          if (a.time > b.time) {
+            return -1;
+          }
+          if (a.time < b.time) {
+            return 1;
+          }
+          return 0;
+        })[0]
+      );
   }, [arrayTasks]);
 
   useEffect(() => {
