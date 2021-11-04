@@ -4,9 +4,9 @@ import bemCssModules from 'bem-css-modules';
 import UserContext from '../../context/user';
 
 // eslint-disable-next-line import/no-named-default
-import { default as ContentPanelMenuStyles } from '../../styles/panel/content/ChatPanel.module.scss';
+import { default as MessagesStyles } from '../../styles/mess-component/Messages.module.scss';
 
-const block = bemCssModules(ContentPanelMenuStyles);
+const block = bemCssModules(MessagesStyles);
 
 const dayofWeekned = ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.'];
 
@@ -27,7 +27,7 @@ const Message = ({ docId, text, author, time }) => {
   }
 
   return (
-    <div key={docId} className={block('wrapper')}>
+    <div key={docId} className={block()}>
       <div
         className={`${
           user.uid === author ? block('user-message') : block('userToMessage-message')

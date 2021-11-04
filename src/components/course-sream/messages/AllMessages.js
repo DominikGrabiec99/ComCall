@@ -11,8 +11,7 @@ import { default as CourseStyles } from '../../../styles/course/Course.module.sc
 const block = bemCssModules(CourseStyles);
 
 const AllMessages = () => {
-  const { course, isLoading } = useContext(courseGlobal);
-  console.log(course[0].messages, isLoading);
+  const { course, isLoading, scroll } = useContext(courseGlobal);
 
   if (isLoading && course[0].messages) {
     return <Loading />;
@@ -31,6 +30,7 @@ const AllMessages = () => {
       {course[0].messages.map(({ id, text, author, time }) => (
         <Message docId={id} text={text} author={author} time={time} key={id} />
       ))}
+      <div ref={scroll} />
     </div>
   );
 };

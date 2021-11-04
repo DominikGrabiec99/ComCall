@@ -11,7 +11,11 @@ const courseGlobal = createContext({
   userIsInCourseList: false,
   setUserIsInCourseList: () => {},
   isLoading: true,
-  setIsLoading: () => {}
+  setIsLoading: () => {},
+  message: '',
+  setMessage: () => {},
+  handleSubmitMessage: () => {},
+  scroll: {}
 });
 
 export default courseGlobal;
