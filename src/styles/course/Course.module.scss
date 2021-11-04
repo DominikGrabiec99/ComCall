@@ -3,6 +3,7 @@
   height: 91vh;
   grid-template-rows: 1fr auto;
   grid-template-columns: auto;
+  width: 100%;
 
   @media (min-width: 950px) {
     grid-template-rows: 1fr;
@@ -22,9 +23,9 @@
   &__container-course {
     display: grid;
     height: 84vh;
+    width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: minmax(auto, 30px) 1fr 1fr;
-    position: absolute;
 
     @media (min-width: 950px) {
       height: 91vh;
