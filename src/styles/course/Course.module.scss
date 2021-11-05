@@ -22,7 +22,7 @@
 
   &__container-course {
     display: grid;
-    height: 84vh;
+    height: 83.8vh;
     width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: minmax(auto, 30px) 1fr 1fr;
@@ -66,7 +66,6 @@
     grid-template-rows: 1fr;
     grid-template-columns: minmax(1fr, 85vh) minmax(50px, auto);
     padding: 0 0.2rem;
-    background-color: rgb(26, 26, 26);
     overflow-y: auto;
 
 
@@ -88,6 +87,48 @@
     flex-direction: column;
     max-height: 100%;
     overflow-y: auto;
+    position: relative;
+  }
+
+
+  ///write mess
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr minmax(1vw, 40px);
+  }
+
+  &__form-textarea {
+    display: block;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+    color: white;
+    font-size: 1.1rem;
+    height: auto;
+    border-radius: 5px 0 0 5px;
+    padding: 0.5rem 0.4rem;
+    line-height: 1.2rem;
+    resize: none;
+
+    &::placeholder {
+      color: rgb(197, 197, 197);
+    }
+  }
+
+  &__form-btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: rgb(129, 129, 129);
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(228, 228, 228);
+      background-color: rgb(51, 51, 51);
+    }
   }
 
   ///header

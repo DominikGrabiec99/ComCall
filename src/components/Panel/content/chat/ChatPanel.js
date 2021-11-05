@@ -149,11 +149,13 @@ const ChatPanel = () => {
               setIsVisible={setIsVisible}
               isLoading={isLoading}
             />
-            <WriteMessagesPanel
-              message={message}
-              setMessage={setMessage}
-              handleSubmitMessage={handleSubmitMessage}
-            />
+            {!isLoading && (
+              <WriteMessagesPanel
+                message={message}
+                setMessage={setMessage}
+                handleSubmitMessage={handleSubmitMessage}
+              />
+            )}
           </div>
         </>
       ) : id === 'chat' ? (
@@ -184,7 +186,7 @@ const ChatPanel = () => {
             scroll={scroll}
             setIsVisible={setIsVisible}
           />
-          {isVisible && (
+          {isVisible && !isLoading && (
             <WriteMessagesPanel
               message={message}
               setMessage={setMessage}

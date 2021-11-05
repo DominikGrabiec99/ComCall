@@ -23,25 +23,29 @@
   &__content-box {
     display: grid;
     grid-template-rows: 1fr auto;
+
+    background-color: #1f1f1f;
   }
 
-  ///// writeMessagesPanel -styles
+  ///// writeMessagesPanel
 
   &__form {
     display: grid;
-    grid-template-columns: 1fr minmax(10vw, 80px);
+    grid-template-columns: 1fr minmax(1vw, 60px);
   }
 
   &__form-textarea {
+    display: block;
     outline: none;
     border: none;
-    background-color: gray;
+    border-bottom: 1px solid gray;
+    background-color: #212121;
     color: white;
     font-size: 1.1rem;
     height: auto;
-    border-radius: 5px 0 0 5px;
-    padding: 0.2rem 0.4rem;
-    line-height: 1.1rem;
+    border-radius: 0 0 0 5px;
+    padding: 0.5rem 0.4rem;
+    line-height: 1.2rem;
     resize: none;
 
     &::placeholder {
@@ -51,12 +55,18 @@
 
   &__form-btn {
     display: block;
-    border-radius: 0 5px 5px 0;
     border: none;
-    background-color: rgb(17, 6, 172);
-    color: white;
+    background-color: #212121;
+    color: rgb(129, 129, 129);
     text-transform: uppercase;
     cursor: pointer;
+    border-radius: 0 0 5px 0;
+    border-bottom: 1px solid gray;
+
+    &:hover {
+      color: rgb(214, 214, 214);
+      background-color: rgb(26, 26, 26);
+    }
   }
 
   &__img-send {
@@ -119,7 +129,6 @@
   /// messagesa panel
 
   &__box-message {
-    background-color: rgb(31, 27, 27);
 
     &-transparent {
       background-color: transparent;
@@ -137,7 +146,7 @@
     align-items: center;
     border-radius: 5px;
     padding: 0.4rem;
-    background-color: rgb(68, 64, 64);
+    background-color: rgb(46, 46, 46);
   }
 
   &__userToMessage-img {
