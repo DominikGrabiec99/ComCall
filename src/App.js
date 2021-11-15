@@ -15,6 +15,7 @@ const Signup = lazy(() => import('./pages/Signup'));
 const Admin = lazy(() => import('./pages/Admin'));
 const Panel = lazy(() => import('./pages/Panel'));
 const Course = lazy(() => import('./pages/Course'));
+const Room = lazy(() => import('./pages/Room'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App = () => {
@@ -49,6 +50,10 @@ const App = () => {
 
             <ProtectRoute user={user} path={ROUTES.COURSE} exact>
               <Course />
+            </ProtectRoute>
+
+            <ProtectRoute user={user} path={ROUTES.ROOM} exact>
+              <Room />
             </ProtectRoute>
 
             <Route exact path="/*" component={NotFound} />

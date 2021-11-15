@@ -1,0 +1,20 @@
+.room {
+  display: grid;
+  height: 91vh;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto;
+  width: 100%;
+
+  @media (min-width: 950px) {
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr;
+  }
+
+  &__content-room {
+    overflow: auto;
+
+    @media (min-width: 950px) {
+      order: 2;
+    }
+  }
+}

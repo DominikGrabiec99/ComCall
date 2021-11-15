@@ -5,7 +5,7 @@ import UserContext from '../../context/user';
 import { getMessagesCourse } from '../../services/firebase';
 
 import HeaderCourse from './HeaderCourse';
-import StreamPanel from './StreamPanel';
+import List from './list/List';
 import ChatPanel from './ChatPanel';
 
 // eslint-disable-next-line import/no-named-default
@@ -28,6 +28,10 @@ const ContentCourse = () => {
     }
 
     getCourseMess();
+
+    return () => {
+      setIsLoading(true);
+    };
   }, [courseId]);
 
   useEffect(() => {
@@ -41,7 +45,9 @@ const ContentCourse = () => {
       ) : (
         <section className={block('container-course')}>
           <HeaderCourse />
-          <StreamPanel />
+          <div className={block('stream-panel')}>
+            <List />
+          </div>
           <ChatPanel />
         </section>
       )}
