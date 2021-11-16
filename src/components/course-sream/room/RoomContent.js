@@ -7,6 +7,9 @@ import Peer from 'simple-peer';
 
 import UserContext from '../../../context/user';
 
+import VideoUser from './VideoUser';
+import StreamOptions from './StreamOptions';
+
 // eslint-disable-next-line import/no-named-default
 import { default as CourseStyles } from '../../../styles/course/room/Room.module.scss';
 
@@ -17,6 +20,7 @@ const RoomContent = () => {
   const { user } = useContext(UserContext);
 
   const [peers, setPeers] = useState([]);
+  const [isStarted, setIsstarted] = useState(false);
   const socketRef = useRef();
   const userVideo = useRef();
   const peersRef = useRef([]);
@@ -57,6 +61,7 @@ const RoomContent = () => {
   }
 
   useEffect(() => {
+    if (isStarted) return null;
     socketRef.current = io.connect('/');
     let stream = null;
 
@@ -66,39 +71,42 @@ const RoomContent = () => {
 
     getStream();
 
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(async (stream) => {
-      userVideo.current.srcObject = stream;
-      socketRef.current.emit('join-room', roomID);
-      socketRef.current.on('all-users', (users) => {
-        const peers = [];
-        users.forEach((userID) => {
-          const peer = createPeer(userID, socketRef.current.id, stream);
-          console.log('peer1', peer);
+    try {
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(async (stream) => {
+        userVideo.current.srcObject = stream;
+        socketRef.current.emit('join-room', roomID);
+        socketRef.current.on('all-users', (users) => {
+          const peers = [];
+          users.forEach((userID) => {
+            const peer = createPeer(userID, socketRef.current.id, stream);
+            peersRef.current.push({
+              peerID: userID,
+              peer
+            });
+            peers.push(peer);
+          });
+          setPeers(peers);
+        });
+
+        socketRef.current.on('user-joined', (payload) => {
+          const peer = addPeer(payload.signal, payload.callerID, stream);
           peersRef.current.push({
-            peerID: userID,
+            peerID: payload.callerID,
             peer
           });
-          peers.push(peer);
-        });
-        setPeers(peers);
-      });
 
-      socketRef.current.on('user-joined', (payload) => {
-        const peer = addPeer(payload.signal, payload.callerID, stream);
-        peersRef.current.push({
-          peerID: payload.callerID,
-          peer
+          setPeers((users) => [...users, peer]);
         });
 
-        setPeers((users) => [...users, peer]);
+        socketRef.current.on('receiving returned signal', (payload) => {
+          const item = peersRef.current.find((p) => p.peerID === payload.id);
+          item.peer.signal(payload.signal);
+        });
       });
-
-      socketRef.current.on('receiving returned signal', (payload) => {
-        const item = peersRef.current.find((p) => p.peerID === payload.id);
-        item.peer.signal(payload.signal);
-      });
-    });
-
+    } catch (err) {
+      console.log(err);
+    }
+    setIsstarted(true);
     return () => {
       stream.getTracks().forEach((track) => {
         track.stop();
@@ -106,50 +114,54 @@ const RoomContent = () => {
     };
   }, []);
 
+  console.log(peers.length);
+
+  const checkPeersLength = () => {
+    if (peers.length + 1 === 1) {
+      return 'users-box-room-1';
+    }
+    if (peers.length + 1 === 2) {
+      return 'users-box-room-2-1';
+    }
+    if (peers.length + 1 < 5) {
+      return 'users-box-room-2';
+    }
+    if (peers.length + 1 < 10) {
+      return 'users-box-room-3';
+    }
+    if (peers.length + 1 < 16) {
+      return 'users-box-room-4';
+    }
+    if (peers.length + 1 < 25) {
+      return 'users-box-room-5';
+    }
+    if (peers.length + 1 < 36) {
+      return 'users-box-room-6';
+    }
+  };
+
+  const randomColorBg = () => {
+    const color = Math.floor(Math.random() * 360);
+
+    return { backgroundColor: `hsl(${color}deg, 50%, 10%)` };
+  };
+
   return (
     <section className={block('content-room')}>
-      <article className={block('user-view')}>
-        <div>
-          <p className={block('user-name')}>{user.displayName}</p>
-        </div>
-        <video muted ref={userVideo} autoPlay playsInline />
-      </article>
-      {peers.map((peer, index) => console.log(peer))}
+      <div className={`${block('users-box-room')} ${block(checkPeersLength())}`}>
+        <article className={block('user-view')} style={randomColorBg()}>
+          <div className={block('user-name-box')}>
+            <p className={block('user-name')}>{user.displayName}</p>
+          </div>
+          <video className={block('user-video')} muted ref={userVideo} autoPlay playsInline />
+        </article>
+        {peers.map((peer, index) => (
+          <VideoUser key={index} peer={peer} randomColorBg={randomColorBg} />
+        ))}
+      </div>
+      <StreamOptions />
     </section>
   );
 };
 
 export default RoomContent;
-
-// <section className={block('stream-grid')}>
-//   {stream && (
-//     <article className={block('user-view')}>
-//       <div>
-//         <p className={block('user-name')}>{name || 'User Name'}</p>
-//       </div>
-//       <video playsInline muted ref={myVideo} autoPlay className={block('stream-video')} />
-//     </article>
-//   )}
-//   {callAccepted && !callEnded && (
-//     <article className={block('user-view')}>
-//       <div>
-//         <p className={block('user-name')}>{call.name || 'User Name'}</p>
-//       </div>
-//       {/* // eslint-disable-next-line jsx-a11y/media-has-caption */}
-//       <video playsInline autoPlay ref={userVideo} className={block('stream-video')} />
-//     </article>
-//   )}
-//   {call.isReceivingCall && !callAccepted && (
-//     <div className={block('answer-call')}>
-//       <p>{call.name} is calling</p>
-//       <button type="button" className={block('answer-call-btn')} onClick={answerCall}>
-//         <p>Answer</p>
-//       </button>
-//     </div>
-//   )}
-//   {isCalling && (
-//     <div className={block('answer-call')}>
-//       <p>Is calling...</p>
-//     </div>
-//   )}
-// </section>

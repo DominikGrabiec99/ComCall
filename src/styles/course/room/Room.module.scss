@@ -1,20 +1,153 @@
 .room {
   display: grid;
-  height: 91vh;
+  min-height: 91.5vh;
+  max-height: 91.5vh;
   grid-template-rows: 1fr auto;
   grid-template-columns: auto;
-  width: 100%;
 
   @media (min-width: 950px) {
+    height: 72.5vh;
+    height: 72.5vh;
     grid-template-rows: 1fr;
     grid-template-columns: auto 1fr;
   }
 
   &__content-room {
-    overflow: auto;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    // overflow: auto;
+    position: relative;
 
     @media (min-width: 950px) {
+      // height: 32.5vh;
       order: 2;
     }
+  }
+
+  /// stream
+  &__users-box-room {
+    display: grid;
+  }
+
+  /// grid-users-layout
+
+  &__users-box-room-1 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  &__users-box-room-2-1 {
+    // grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &__users-box-room-2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &__users-box-room-3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  &__users-box-room-4 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  &__users-box-room-5 {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  &__users-box-room-6 {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  ///
+  &__user-view {
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    // width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
+
+  &__user-view:hover &__user-name-box {
+    display: flex;
+  }
+
+  &__user-name-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 950px) {
+      display: none;
+    }
+  }
+
+  &__user-video {
+    width: 100%;
+    height: 100%;
+
+    @media (min-width: 950px) {
+      height: auto;
+      width: auto;
+    }
+  }
+
+
+  ///stream option 
+
+  &__container-options-call {
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid gray;
+    padding: 0.2rem;
+
+    @media (min-width: 950px) {
+      border-bottom: none;
+    }
+  }
+
+  &__icon-container {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 1rem;
+
+    @media (min-width: 950px) {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  &__icon-container-volume {
+    background-color: rgb(67, 32, 194);
+  }
+
+  &__icon-container-video {
+    background-color: rgb(79, 32, 155);
+  }
+
+  &__icon-container-end {
+    background-color: rgb(221, 27, 27);
   }
 }

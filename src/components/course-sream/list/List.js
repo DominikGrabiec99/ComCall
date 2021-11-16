@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import bemCssModules from 'bem-css-modules';
 import { v1 as uuid } from 'uuid';
 
@@ -20,7 +19,6 @@ const block = bemCssModules(CourseStyles);
 
 const List = () => {
   const [userActual, setUserActual] = useState(null);
-  const history = useHistory();
 
   const { course } = useContext(courseGlobal);
   const { user } = useContext(UserContext);
@@ -35,7 +33,8 @@ const List = () => {
 
   const handleClickCreateId = async () => {
     const id = uuid();
-    history.push(`/room/${id}`);
+    const win = window.open(`/room/${id}`, '_blank');
+    win.focus();
     await firebase.firestore().collection(`courses`).doc(course[0].docId).update({
       streamId: id
     });
