@@ -12,7 +12,6 @@ const VideoUser = ({ peer, randomColorBg }) => {
 
   useEffect(() => {
     peer.on('stream', (stream) => {
-      console.log(stream);
       ref.current.srcObject = stream;
     });
 

@@ -33,17 +33,23 @@ const List = () => {
 
   const handleClickCreateId = async () => {
     const id = uuid();
-    const win = window.open(`/room/${id}`, '_blank');
-    win.focus();
     await firebase.firestore().collection(`courses`).doc(course[0].docId).update({
       streamId: id
     });
+    const win = window.open(`/room/${id}`, '_blank');
+    win.parameters = JSON.stringify({ courseId: course[0].docId });
+    win.focus();
+  };
+
+  const goToCourseStream = () => {
+    const win = window.open(`/room/${course[0].streamId}`, '_blank');
+    win.focus();
   };
 
   return (
     <section
       className={`${
-        userActual && userActual[0].isTeacher
+        (userActual && userActual[0].isTeacher) || (course && course[0].streamId)
           ? block('list-section-teacher')
           : block('list-section-user')
       } ${block('list-section')}`}
@@ -59,6 +65,18 @@ const List = () => {
           </div>
           <div className={`${block('icon-container')} ${block('icon-container-add-task')}`}>
             <span className="material-icons-outlined">note_alt</span>
+          </div>
+        </div>
+      )}
+
+      {course && course[0].streamId && userActual && !userActual[0].isTeacher && (
+        <div className={block('teacher-option')}>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+          <div
+            className={`${block('icon-container')} ${block('icon-container-call')}`}
+            onClick={goToCourseStream}
+          >
+            <span className="material-icons-outlined">phone</span>
           </div>
         </div>
       )}

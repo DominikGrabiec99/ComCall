@@ -28,7 +28,7 @@ const AllMessages = () => {
   return (
     <div className={block('messages-container')}>
       {course[0].messages.map(({ id, text, author, time }) => (
-        <Message docId={id} text={text} author={author} time={time} key={id} />
+        <Message docId={id} text={text} author={author} time={time} key={id} courseMess />
       ))}
       <div ref={scroll} />
     </div>

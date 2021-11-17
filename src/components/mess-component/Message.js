@@ -1,7 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import bemCssModules from 'bem-css-modules';
 import UserContext from '../../context/user';
+
+import { getUserByUserId } from '../../services/firebase';
 
 // eslint-disable-next-line import/no-named-default
 import { default as MessagesStyles } from '../../styles/mess-component/Messages.module.scss';
@@ -10,7 +12,8 @@ const block = bemCssModules(MessagesStyles);
 
 const dayofWeekned = ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.'];
 
-const Message = ({ docId, text, author, time }) => {
+const Message = ({ docId, text, author, time, courseMess }) => {
+  const [userMessage, setUserMessage] = useState();
   const { user } = useContext(UserContext);
   const dateTime = new Date(time);
   const currentDate = new Date();
@@ -26,6 +29,15 @@ const Message = ({ docId, text, author, time }) => {
     }`;
   }
 
+  useEffect(() => {
+    if (!courseMess) return;
+    async function getUserById() {
+      setUserMessage(await getUserByUserId(author));
+    }
+
+    getUserById();
+  }, []);
+
   return (
     <div key={docId} className={block()}>
       <div
@@ -33,6 +45,11 @@ const Message = ({ docId, text, author, time }) => {
           user.uid === author ? block('user-message') : block('userToMessage-message')
         }`}
       >
+        {courseMess && (
+          <p className={`${block('message-name')} ${block('user-message-name')}`}>
+            {user.uid !== author && userMessage && userMessage[0].fullName}
+          </p>
+        )}
         <div
           className={`${block('flex-rows-box')} ${
             user.uid === author ? block('flex-rows-box-userToMessage') : block('flex-rows-box-user')
@@ -71,5 +88,6 @@ Message.propTypes = {
   docId: PropTypes.string,
   text: PropTypes.string,
   author: PropTypes.string,
-  time: PropTypes.number
+  time: PropTypes.number,
+  courseMess: PropTypes.bool
 };

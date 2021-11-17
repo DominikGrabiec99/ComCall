@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
+import PropTypes from 'prop-types';
 import bemCssModules from 'bem-css-modules';
 
 // eslint-disable-next-line import/no-named-default
@@ -8,7 +9,7 @@ import { default as CourseStyles } from '../../../styles/course/room/Room.module
 
 const block = bemCssModules(CourseStyles);
 
-const StreamOptions = () => (
+const StreamOptions = ({ closeCourseStream }) => (
   <section className={block('container-options-call')}>
     <div className={`${block('icon-container')} ${block('icon-container-video')}`}>
       <span className="material-icons-outlined">videocam</span>
@@ -16,7 +17,7 @@ const StreamOptions = () => (
     </div>
     <div
       className={`${block('icon-container')} ${block('icon-container-end')}`}
-      onClick={() => window.close()}
+      onClick={closeCourseStream}
     >
       <span className="material-icons-outlined">phone_disabled</span>
     </div>
@@ -27,3 +28,7 @@ const StreamOptions = () => (
   </section>
 );
 export default StreamOptions;
+
+StreamOptions.propTypes = {
+  closeCourseStream: PropTypes.func
+};

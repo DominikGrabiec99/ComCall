@@ -1,81 +1,91 @@
 .warpper {
+  margin-top: 0.2rem;
+
+  &__user-message {
+    flex-direction: row-reverse;
+    text-align: end;
+    float: right;
+  }
+
+  &__userToMessage-message {
+    float: left;
+    color: white
+  }
+
+  &__flex-rows-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  &__flex-rows-box-userToMessage {
+    flex-direction: row-reverse;
+  }
+
+  &__flex-rows-box-user {
+    flex-direction: row;
+  }
+
+  &__message-text {
+    display: flex;
     margin-top: 0.2rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
 
-   &__user-message {
-     flex-direction: row-reverse;
-     text-align: end;
-     float: right;
-   }
+  &__message-text-p {
+    word-break: break-word;
+    text-align: left;
+  }
 
-   &__userToMessage-message {
-     float: left;
-     color: white
-   }
+  &__user-message-text {
+    background-color: rgba(114, 140, 226, 0.788);
+    flex-direction: row-reverse;
+  }
 
-   &__flex-rows-box {
-     display: flex;
-     flex-direction: row;
-     align-items: flex-end;
-   }
+  &__userToMessage-message-text {
+    background-color: rgb(155, 155, 155);
+  }
 
-   &__flex-rows-box-userToMessage {
-     flex-direction: row-reverse;
-   }
+  &__message-name {
+    color: rgb(192, 192, 192);
+    font-size: 0.7rem;
+  }
 
-   &__flex-rows-box-user {
-     flex-direction: row;
-   }
+  &__message-time {
+    color: gray;
+    font-size: 0.7rem;
+  }
 
-   &__message-text {
-     display: flex;
-     margin-top: 0.2rem;
-     padding: 5px 10px;
-     border-radius: 20px;
-   }
+  &__user-message-time {
+    text-align: end;
+    margin-right: 0.4rem;
+  }
 
-   &__message-text-p {
-     word-break: break-word;
-     text-align: left;
-   }
+  &__userToMessage-message-time {
+    text-align: start;
+    margin-left: 0.4rem;
+  }
 
-   &__user-message-text {
-     background-color: rgba(114, 140, 226, 0.788);
-     flex-direction: row-reverse;
-   }
+  &__user-message-name {
+    text-align: start;
+    margin-top: 0.2rem;
+  }
 
-   &__userToMessage-message-text {
-     background-color: rgb(155, 155, 155);
-   }
+  &__img-message {
+    height: 30px;
 
-   &__message-time {
-     color: gray;
-     font-size: 0.7rem;
-   }
+  }
 
-   &__user-message-time {
-     text-align: end;
-     margin-right: 0.4rem;
-   }
+  &__user-message-img {
+    margin-right: 0.5vw;
+  }
 
-   &__userToMessage-message-time {
-     text-align: start;
-     margin-left: 0.4rem;
-   }
+  &__userToMessage-message-img {
+    margin-left: 0.5vw;
+  }
 
-   &__img-message {
-     height: 30px;
-
-   }
-
-   &__user-message-img {
-     margin-right: 0.5vw;
-   }
-
-   &__userToMessage-message-img {
-     margin-left: 0.5vw;
-   }
-
-   &__text {
-     text-align: center;
-   }
+  &__text {
+    text-align: center;
+  }
 }

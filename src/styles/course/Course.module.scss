@@ -25,7 +25,7 @@
     height: 83.8vh;
     width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(auto, 30px) 1fr 1fr;
+    grid-template-rows: minmax(auto, 30px) 1fr;
 
     @media (min-width: 950px) {
       height: 91vh;
@@ -152,12 +152,20 @@
 
   &__list-section-teacher {
     display: grid;
-    grid-template-rows: 50px 40px 1fr;
+    grid-template-rows: 50px 1fr;
+
+    @media (min-width: 950px) {
+      grid-template-rows: 50px 40px 1fr;
+    }
   }
 
   &__list-section-user {
     display: grid;
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: 1fr;
+
+    @media (min-width: 950px) {
+      grid-template-rows: 40px 1fr;
+    }
   }
 
   &__list-section {
@@ -169,25 +177,36 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    border-bottom: 1px solid rgb(78, 78, 78);
+
+    @media (min-width: 950px) {
+      border-bottom: none;
+    }
   }
 
   &__list-title {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
     font-size: 1.1rem;
     border-bottom: 1px solid rgb(143, 143, 143);
     border-top: 1px solid rgb(143, 143, 143);
+
+    @media (min-width: 950px) {
+      display: flex;
+    }
   }
 
   &__list-container {
+    display: none;
     width: 100%;
     overflow-y: auto;
     border-bottom: 1px solid rgb(143, 143, 143);
 
     @media (min-width: 950px) {
-      border: none
+      border: none;
+      display: block;
     }
   }
 

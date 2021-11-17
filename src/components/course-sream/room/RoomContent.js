@@ -6,9 +6,12 @@ import io from 'socket.io-client';
 import Peer from 'simple-peer';
 
 import UserContext from '../../../context/user';
+import FirebaseContext from '../../../context/firebase';
 
 import VideoUser from './VideoUser';
 import StreamOptions from './StreamOptions';
+
+import { getUserByUserId } from '../../../services/firebase';
 
 // eslint-disable-next-line import/no-named-default
 import { default as CourseStyles } from '../../../styles/course/room/Room.module.scss';
@@ -17,14 +20,32 @@ const block = bemCssModules(CourseStyles);
 
 const RoomContent = () => {
   const { id } = useParams();
+
   const { user } = useContext(UserContext);
+  const { firebase } = useContext(FirebaseContext);
 
   const [peers, setPeers] = useState([]);
   const [isStarted, setIsstarted] = useState(false);
+  const [userActual, setUserActual] = useState(null);
+  const [courseID, setCourseID] = useState('');
+
   const socketRef = useRef();
   const userVideo = useRef();
   const peersRef = useRef([]);
   const roomID = id;
+
+  useEffect(() => {
+    async function getUserActual() {
+      setUserActual(await getUserByUserId(user.uid));
+    }
+    getUserActual();
+  }, [user]);
+
+  useEffect(() => {
+    const ObjParamsWindow = JSON.parse(window.parameters);
+
+    setCourseID(ObjParamsWindow.courseId);
+  }, []);
 
   function createPeer(userToSignal, callerID, stream) {
     const peer = new Peer({
@@ -59,6 +80,16 @@ const RoomContent = () => {
 
     return peer;
   }
+
+  const closeCourseStream = async () => {
+    if (userActual[0].isTeacher) {
+      await firebase.firestore().collection(`courses`).doc(courseID).update({
+        streamId: ''
+      });
+    }
+
+    window.close();
+  };
 
   useEffect(() => {
     if (isStarted) return null;
@@ -106,15 +137,19 @@ const RoomContent = () => {
     } catch (err) {
       console.log(err);
     }
+
     setIsstarted(true);
+
     return () => {
       stream.getTracks().forEach((track) => {
         track.stop();
       });
+
+      window.addEventListener('beforeunload', () => {
+        closeCourseStream();
+      });
     };
   }, []);
-
-  console.log(peers.length);
 
   const checkPeersLength = () => {
     if (peers.length + 1 === 1) {
@@ -159,7 +194,7 @@ const RoomContent = () => {
           <VideoUser key={index} peer={peer} randomColorBg={randomColorBg} />
         ))}
       </div>
-      <StreamOptions />
+      <StreamOptions closeCourseStream={closeCourseStream} />
     </section>
   );
 };
