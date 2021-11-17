@@ -29,6 +29,8 @@ const List = () => {
       setUserActual(await getUserByUserId(user.uid));
     }
     getUserActual();
+
+    console.log(course && course[0].courseId);
   }, [user]);
 
   const handleClickCreateId = async () => {
@@ -36,7 +38,7 @@ const List = () => {
     await firebase.firestore().collection(`courses`).doc(course[0].docId).update({
       streamId: id
     });
-    const win = window.open(`/room/${id}`, '_blank');
+    const win = window.open(`/room/${id}/${course[0].docId}`, '_blank');
     win.parameters = JSON.stringify({ courseId: course[0].docId });
     win.focus();
   };
