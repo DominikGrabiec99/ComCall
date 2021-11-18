@@ -102,14 +102,11 @@ const RoomContent = () => {
         .enumerateDevices()
         .then((devices) =>
           devices.forEach((device) => {
-            if (device.kind === 'audioinput' && device.kind === 'videoinput' && device.labe) {
-              ObjectMediaDevice = { audio: true, video: true };
+            if (device.kind === 'audioinput' && device.label) {
+              ObjectMediaDevice.audio = true;
             }
-            if (device.kind === 'audioinput' && device.label && device.kind !== 'videoinput') {
-              ObjectMediaDevice = { audio: true };
-            }
-            if (device.kind === 'videoinput' && device.label && device.kind !== 'audioinput') {
-              ObjectMediaDevice = { video: true };
+            if (device.kind === 'videoinput') {
+              ObjectMediaDevice.video = true;
             }
             if (device.kind !== 'audioinput' && device.kind !== 'videoinput' && device.labe) {
               ObjectMediaDevice = {};
@@ -160,8 +157,9 @@ const RoomContent = () => {
         track.stop();
       });
 
-      window.addEventListener('beforeunload', () => {
-        closeCourseStream();
+      window.addEventListener('beforeunload', async (e) => {
+        e.preventDefault();
+        await closeCourseStream();
       });
     };
   }, []);

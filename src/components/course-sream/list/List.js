@@ -44,7 +44,7 @@ const List = () => {
   };
 
   const goToCourseStream = () => {
-    const win = window.open(`/room/${course[0].streamId}`, '_blank');
+    const win = window.open(`/room/${course[0].streamId}/${course[0].docId}`, '_blank');
     win.focus();
   };
 
