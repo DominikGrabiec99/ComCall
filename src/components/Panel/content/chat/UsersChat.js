@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import bemCssModules from 'bem-css-modules';
+
+import chatGlobal from '../../../../context/chatGlobal';
 
 // eslint-disable-next-line import/no-named-default
 import { default as ContentPanelMenuStyles } from '../../../../styles/panel/content/ChatPanel.module.scss';
@@ -12,7 +13,8 @@ const block = bemCssModules(ContentPanelMenuStyles);
 
 const dayofWeekned = ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.'];
 
-const UsersChat = ({ firstMessages, setUserToMessage, isLoading, width }) => {
+const UsersChat = () => {
+  const { firstMessages, setUserToMessage, isLoading, width } = useContext(chatGlobal);
   const history = useHistory();
 
   const firstMessagesElement =
@@ -105,10 +107,3 @@ const UsersChat = ({ firstMessages, setUserToMessage, isLoading, width }) => {
 };
 
 export default UsersChat;
-
-UsersChat.propTypes = {
-  firstMessages: PropTypes.array,
-  setUserToMessage: PropTypes.func,
-  isLoading: PropTypes.bool,
-  width: PropTypes.number
-};

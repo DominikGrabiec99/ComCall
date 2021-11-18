@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useContext } from 'react';
 import bemCssModules from 'bem-css-modules';
 
 import Loading from '../../../Loading';
 import Message from '../../../mess-component/Message';
+
+import chatGlobal from '../../../../context/chatGlobal';
 
 // eslint-disable-next-line import/no-named-default
 import { default as ContentPanelMenuStyles } from '../../../../styles/panel/content/ChatPanel.module.scss';
 
 const block = bemCssModules(ContentPanelMenuStyles);
 
-const MessagessPanel = ({ messages, userToMessage, scroll, setIsVisible, isLoading }) => {
+const MessagessPanel = () => {
+  const { messages, userToMessage, scroll, setIsVisible, isLoading } = useContext(chatGlobal);
+
   useEffect(() => {
     if (Object.keys(userToMessage).length === 0 || messages === undefined) {
       setIsVisible(false);
@@ -76,11 +79,3 @@ const MessagessPanel = ({ messages, userToMessage, scroll, setIsVisible, isLoadi
 };
 
 export default MessagessPanel;
-
-MessagessPanel.propTypes = {
-  messages: PropTypes.array,
-  userToMessage: PropTypes.object,
-  scroll: PropTypes.object,
-  isLoading: PropTypes.bool,
-  setIsVisible: PropTypes.func
-};

@@ -8,6 +8,7 @@ import HeaderCourse from './HeaderCourse';
 import List from './list/List';
 import ChatPanel from './ChatPanel';
 import PanelTask from './task-panel/PanelTask';
+import Loading from '../Loading';
 
 // eslint-disable-next-line import/no-named-default
 import { default as CourseStyles } from '../../styles/course/Course.module.scss';
@@ -17,7 +18,7 @@ const block = bemCssModules(CourseStyles);
 const ContentCourse = () => {
   const [isVisible, setIsVisaible] = useState(false);
   const { user } = useContext(UserContext);
-  const { course, setCourse, userIsInCourseList, setUserCourse, setIsLoading } =
+  const { course, setCourse, userIsInCourseList, setUserCourse, setIsLoading, isLoading } =
     useContext(courseGlobal);
 
   const { courseId, docId } = course.length !== 0 && course[0];
@@ -41,6 +42,14 @@ const ContentCourse = () => {
   }, []);
 
   const handleOnClickTogglePanel = () => setIsVisaible(!isVisible);
+
+  if (isLoading) {
+    return (
+      <div className={block('content-course')}>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className={block('content-course')}>
