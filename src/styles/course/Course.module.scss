@@ -11,6 +11,7 @@
   }
 
   &__content-course {
+    position: relative;
     overflow: auto;
 
     @media (min-width: 950px) {
@@ -21,6 +22,7 @@
   /// content
 
   &__container-course {
+
     display: grid;
     height: 83.8vh;
     width: 100%;
@@ -257,6 +259,101 @@
 
   &__icon-container-add-task {
     background-color: rgb(79, 32, 155);
+  }
+
+  /// panel task 
+  &__add-task-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(94, 94, 94, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container-panel {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(36, 36, 36);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @media (min-width: 950px) {
+      width: 50%;
+      height: 60%;
+    }
+  }
+
+  &__header-panel {
+    padding: 0.4rem;
+    text-align: center;
+    font-weight: 400;
+
+    @media (min-width: 950px) {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__form-task {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__input {
+    width: 90%;
+    background-color: rgb(27, 27, 27);
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid rgb(255, 64, 64);
+    outline: none;
+    margin-bottom: 1rem;
+    color: rgb(224, 224, 224);
+    padding: 0.4rem 0.4rem;
+    font-size: 1rem;
+  }
+
+  &__input-correct {
+    border-bottom-color: green;
+  }
+
+  &__input::placeholder {
+    color: rgb(177, 177, 177);
+  }
+
+  &__text-area {
+    resize: none;
+    text-align: justify;
+  }
+
+  &__btn-submit {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid green;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__btn-submit:disabled {
+    border-color: red;
+    opacity: 0.4;
+    cursor: auto;
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: rgb(146, 145, 145);
   }
 
 }

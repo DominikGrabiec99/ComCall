@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import bemCssModules from 'bem-css-modules';
 import { v1 as uuid } from 'uuid';
 
@@ -17,7 +18,7 @@ import { default as CourseStyles } from '../../../styles/course/Course.module.sc
 
 const block = bemCssModules(CourseStyles);
 
-const List = () => {
+const List = ({ handleOnClickTogglePanel }) => {
   const [userActual, setUserActual] = useState(null);
 
   const { course } = useContext(courseGlobal);
@@ -29,8 +30,6 @@ const List = () => {
       setUserActual(await getUserByUserId(user.uid));
     }
     getUserActual();
-
-    console.log(course && course[0].courseId);
   }, [user]);
 
   const handleClickCreateId = async () => {
@@ -65,7 +64,11 @@ const List = () => {
           >
             <span className="material-icons-outlined">phone</span>
           </div>
-          <div className={`${block('icon-container')} ${block('icon-container-add-task')}`}>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+          <div
+            className={`${block('icon-container')} ${block('icon-container-add-task')}`}
+            onClick={handleOnClickTogglePanel}
+          >
             <span className="material-icons-outlined">note_alt</span>
           </div>
         </div>
@@ -91,3 +94,7 @@ const List = () => {
 };
 
 export default List;
+
+List.propTypes = {
+  handleOnClickTogglePanel: PropTypes.func
+};

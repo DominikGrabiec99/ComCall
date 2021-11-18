@@ -16,26 +16,6 @@ const courseGlobal = createContext({
   setMessage: () => {},
   handleSubmitMessage: () => {},
   scroll: {}
-  // ///
-  // call: {},
-  // callAccepted: false,
-  // myVideo: {},
-  // userVideo: {},
-  // stream: null,
-  // callEnded: false,
-  // name: '',
-  // me: '',
-  // answerCall: () => {},
-  // callUser: (id) => {},
-  // leaveCall: () => {},
-  // setStartStream: () => {},
-  // setIsCalling: () => {},
-  // isCalling: false
-  ///
-  // peers: [],
-  // socketRef: {},
-  // userVideo: {},
-  // peersRef: {}
 });
 
 export default courseGlobal;
