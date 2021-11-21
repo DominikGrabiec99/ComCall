@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-// import Footer from '../components/Footer';
 import bemCssModules from 'bem-css-modules';
+
+import UserContext from '../context/user';
+
 import Header from '../components/Header';
 import SidebarMenu from '../components/Panel/SidebarMenu';
 import ContentPanel from '../components/Panel/ContentPanel';
@@ -14,8 +16,12 @@ const block = bemCssModules(PanelStyles);
 const Panel = () => {
   const params = useParams();
   const history = useHistory();
+  const { actualUser } = useContext(UserContext);
 
   useEffect(() => {
+    if (actualUser.length !== 0 && actualUser[0].isAdmin) {
+      history.push('/admin/home');
+    }
     if (params.id === ':id') {
       history.push('/panel/home');
     } else if (
@@ -31,6 +37,7 @@ const Panel = () => {
     }
     document.title = 'ComCall';
   }, [params]);
+
   return (
     <>
       <Header />

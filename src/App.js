@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as ROUTES from './constans/routes';
 import useAuthListener from './hooks/use-auth-listener';
@@ -8,6 +8,7 @@ import './App.scss';
 
 import ProtectRoute from './helpers/protected-route';
 import IsUserLoggedIn from './helpers/is-user-logged-in';
+import { getUserByUserId } from './services/firebase';
 
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Login = lazy(() => import('./pages/Login'));
@@ -19,15 +20,27 @@ const Room = lazy(() => import('./pages/Room'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App = () => {
+  const [actualUser, setactualUser] = useState([]);
   const { user } = useAuthListener();
 
+  useEffect(() => {
+    async function getUser() {
+      setactualUser(await getUserByUserId(user.uid));
+    }
+    if (user) {
+      getUser();
+    }
+
+    return () => {
+      setactualUser([]);
+    };
+  }, [user]);
+
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, actualUser }}>
       <Router>
         <Suspense fallback={<p>loading...</p>}>
           <Switch>
-            {/* <Route exact path={ROUTES.DASHBOARD} component={Dashboard} /> */}
-
             <IsUserLoggedIn user={user} loggedInPath={ROUTES.PANEL} path={ROUTES.DASHBOARD} exact>
               <Dashboard />
             </IsUserLoggedIn>

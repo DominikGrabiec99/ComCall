@@ -23,29 +23,19 @@ const Month = ({ month }) => {
           : block('month-container-5')
       }`}
     >
-      {month.map((row, index) => {
-        console.log(
-          month[5][0].currentMonthCount > dayjs(new Date(year, monthIndex, 1)).daysInMonth()
-        );
-        console.log(
-          month[5][0].currentMonthCount,
-          dayjs(new Date(year, monthIndex, 1)).daysInMonth()
-        );
-        console.log(month);
-        return (
-          <React.Fragment key={index}>
-            {row[0].currentMonthCount <= dayjs(new Date(year, monthIndex, 1)).daysInMonth() &&
-              row.map((day, i) => (
-                <Day
-                  day={day.dayjs}
-                  currentMonthCount={day.currentMonthCount}
-                  key={i}
-                  rowIdx={index}
-                />
-              ))}
-          </React.Fragment>
-        );
-      })}
+      {month.map((row, index) => (
+        <React.Fragment key={index}>
+          {row[0].currentMonthCount <= dayjs(new Date(year, monthIndex, 1)).daysInMonth() &&
+            row.map((day, i) => (
+              <Day
+                day={day.dayjs}
+                currentMonthCount={day.currentMonthCount}
+                key={i}
+                rowIdx={index}
+              />
+            ))}
+        </React.Fragment>
+      ))}
     </div>
   );
 };

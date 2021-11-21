@@ -11,7 +11,7 @@ const block = bemCssModules(SidebarMenuStyles);
 const NavLinkElement = ({ to, text, icon, isVisibility }) => (
   <NavLink
     exact
-    to={`/panel/${to}`}
+    to={`/${to}`}
     activeClassName={block('menu-icon-active')}
     className={block('box-icon')}
   >

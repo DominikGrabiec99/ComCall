@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import bemCssModules from 'bem-css-modules';
 import { v1 as uuid } from 'uuid';
 
-import { getUserByUserId } from '../../../services/firebase';
-
 import courseGlobal from '../../../context/courseGlobal';
 import FirebaseContext from '../../../context/firebase';
 import UserContext from '../../../context/user';
@@ -19,18 +17,9 @@ import { default as CourseStyles } from '../../../styles/course/Course.module.sc
 const block = bemCssModules(CourseStyles);
 
 const List = ({ handleOnClickTogglePanel }) => {
-  const [userActual, setUserActual] = useState(null);
-
   const { course } = useContext(courseGlobal);
-  const { user } = useContext(UserContext);
+  const { actualUser } = useContext(UserContext);
   const { firebase } = useContext(FirebaseContext);
-
-  useEffect(() => {
-    async function getUserActual() {
-      setUserActual(await getUserByUserId(user.uid));
-    }
-    getUserActual();
-  }, [user]);
 
   const handleClickCreateId = async () => {
     const id = uuid();
@@ -50,12 +39,12 @@ const List = ({ handleOnClickTogglePanel }) => {
   return (
     <section
       className={`${
-        (userActual && userActual[0].isTeacher) || (course && course[0].streamId)
+        (actualUser && actualUser[0].isTeacher) || (course && course[0].streamId)
           ? block('list-section-teacher')
           : block('list-section-user')
       } ${block('list-section')}`}
     >
-      {userActual && userActual[0].isTeacher && (
+      {actualUser && actualUser[0].isTeacher && (
         <div className={block('teacher-option')}>
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
           <div
@@ -74,7 +63,7 @@ const List = ({ handleOnClickTogglePanel }) => {
         </div>
       )}
 
-      {course && course[0].streamId && userActual && !userActual[0].isTeacher && (
+      {course && course[0].streamId && actualUser && !actualUser[0].isTeacher && (
         <div className={block('teacher-option')}>
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
           <div

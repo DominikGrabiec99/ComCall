@@ -11,8 +11,6 @@ import FirebaseContext from '../../../context/firebase';
 import VideoUser from './VideoUser';
 import StreamOptions from './StreamOptions';
 
-import { getUserByUserId } from '../../../services/firebase';
-
 // eslint-disable-next-line import/no-named-default
 import { default as CourseStyles } from '../../../styles/course/room/Room.module.scss';
 
@@ -21,24 +19,16 @@ const block = bemCssModules(CourseStyles);
 const RoomContent = () => {
   const { id, courseId } = useParams();
 
-  const { user } = useContext(UserContext);
+  const { actualUser, user } = useContext(UserContext);
   const { firebase } = useContext(FirebaseContext);
 
   const [peers, setPeers] = useState([]);
   const [isStarted, setIsstarted] = useState(false);
-  const [userActual, setUserActual] = useState(null);
 
   const socketRef = useRef();
   const userVideo = useRef();
   const peersRef = useRef([]);
   const roomID = id;
-
-  useEffect(() => {
-    async function getUserActual() {
-      setUserActual(await getUserByUserId(user.uid));
-    }
-    getUserActual();
-  }, [user]);
 
   function createPeer(userToSignal, callerID, stream) {
     const peer = new Peer({
@@ -75,7 +65,7 @@ const RoomContent = () => {
   }
 
   const closeCourseStream = async () => {
-    if (userActual[0].isTeacher && courseId) {
+    if (actualUser[0].isTeacher && courseId) {
       await firebase.firestore().collection(`courses`).doc(courseId).update({
         streamId: ''
       });

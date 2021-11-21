@@ -156,3 +156,15 @@ export const getMessagesCourse = async (courseId, setCourse) => {
       setCourse(snapshot.docs.map((doc) => ({ docId: doc.id, ...doc.data() })));
     });
 };
+
+/// admin
+
+export const getAllCourse = async (setAllCourses, setIsLoading) => {
+  firebase
+    .firestore()
+    .collection(`courses`)
+    .onSnapshot((snapshot) => {
+      setAllCourses(snapshot.docs.map((doc) => ({ docId: doc.id, ...doc.data() })));
+      setIsLoading(false);
+    });
+};

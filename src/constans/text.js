@@ -188,27 +188,54 @@ export const footerText = [
 export const sidebarOption = [
   {
     id: 1,
-    to: 'home',
+    to: 'panel/home',
     text: 'Home',
     icon: 'home'
   },
   {
     id: 2,
-    to: 'chat',
+    to: 'panel/chat',
     text: 'Chat',
     icon: 'question_answer'
   },
   {
     id: 3,
-    to: 'calendar',
+    to: 'panel/calendar',
     text: 'Calendar',
     icon: 'event'
   },
   {
     id: 4,
-    to: 'listTasks',
+    to: 'panel/listTasks',
     text: 'Documents',
     icon: 'description'
+  }
+];
+
+export const sidebarOptionAdmin = [
+  {
+    id: 1,
+    to: 'admin/home',
+    text: 'Home',
+    icon: 'home'
+  },
+  {
+    id: 2,
+    to: 'admin/courses',
+    text: 'Courses',
+    icon: 'library_books'
+  },
+  {
+    id: 3,
+    to: 'admin/users',
+    text: 'Users',
+    icon: 'people'
+  },
+  {
+    id: 4,
+    to: 'admin/calendar',
+    text: 'Calendar',
+    icon: 'event'
   }
 ];
 
