@@ -86,8 +86,7 @@ const Signup = () => {
         emailAddress,
         courses: [],
         isAdmin: false,
-        // isTeacher: false,
-        // calendar: [],
+        isTeacher: false,
         dateCreated: Date.now()
       });
 

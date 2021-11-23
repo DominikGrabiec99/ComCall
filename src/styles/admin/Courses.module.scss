@@ -4,11 +4,9 @@
 
   &__container-courses {
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding: 0.2rem;
+    padding: 0 1rem;
     display: grid;
-    grid-gap: 0.2rem;
+    grid-gap: 1rem;
     grid-template-columns: repeat(1, 1fr);
 
 
@@ -40,7 +38,7 @@
   &__card {
     cursor: pointer;
     height: 300px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0.5rem;
     border: 1px solid rgb(2, 83, 121);
     display: flex;
@@ -109,7 +107,8 @@
   //form 
 
   &__course-edit {
-    position: absolute;
+    z-index: 100;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -148,4 +147,251 @@
     color: white;
     cursor: pointer;
   }
+
+  //form
+
+  &__header-form {
+    text-align: center;
+  }
+
+  &__box-flex {
+    display: flex;
+    height: 100%;
+  }
+
+  &__form {
+    width: 100%;
+    padding: 0.1rem 1rem;
+    overflow: auto;
+
+    @media (min-width: 700px) {
+      width: 50%;
+    }
+  }
+
+  &__box-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.6rem 0;
+  }
+
+  &__name-form-item {
+    color: rgb(219, 218, 218);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+  }
+
+  &__input-form-item {
+    background-color: rgb(56, 56, 56);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  &__select-form {
+    background-color: rgb(56, 56, 56);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    padding: 0.2rem 0.6rem;
+  }
+
+  &__images-conainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+  }
+
+  &__photo-box {
+    flex-basis: 28%;
+    margin: 0.75%;
+    position: relative;
+  }
+
+  &__photo-form {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__photo-form-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: green;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  &__box-buttons {
+    margin-top: 2rem;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__btn-form {
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__btn-form-add {
+    background-color: rgb(10, 82, 10);
+    margin-right: 0.3rem;
+  }
+
+  &__btn-form-add:hover {
+    background-color: rgb(21, 114, 21);
+  }
+
+  &__btn-form-delete {
+    background-color: rgb(170, 19, 19);
+  }
+
+  &__btn-form-delete:hover {
+    background-color: rgb(219, 46, 46);
+  }
+
+  &__box-img {
+    display: none;
+    width: 50%;
+
+    @media (min-width: 700px) {
+      display: block;
+    }
+  }
+
+  &__img-form {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+  }
+
+  &__form-error {
+    text-align: center;
+    color: red;
+    font-size: 0.8rem;
+  }
+
+  ////
+
+  &__labels-conainer {
+    display: flex;
+  }
+
+  &__label-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+
+  &__label-container {
+    display: flex;
+  }
+
+  &__label-indigo {
+    background-color: rgb(92, 24, 141);
+  }
+
+  &__label-orange {
+    background-color: rgb(197, 126, 19);
+  }
+
+  &__label-green {
+    background-color: rgb(16, 148, 16);
+  }
+
+  &__label-blue {
+    background-color: rgb(44, 44, 204);
+  }
+
+  &__label-red {
+    background-color: rgb(228, 61, 61);
+  }
+
+  &__label-purple {
+    background-color: rgb(187, 22, 187);
+  }
+
+
+  /// search 
+
+  &__search-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+  }
+
+  &__search-box {
+    position: relative;
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    background-color: rgb(83, 83, 83);
+    outline: none;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 50px;
+  }
+
+  &__search-input::placeholder {
+    color: white;
+  }
+
+  &__search-icon {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+  }
+
+  &__select-box {
+    position: relative;
+    min-width: 100px;
+  }
+
+  &__select-checked {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__select {
+    background-color: transparent;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 50px;
+    padding: 0.2rem 0.6rem;
+  }
+
+  &__select-item {
+    color: white;
+    background-color: rgb(43, 42, 42);
+    text-transform: capitalize;
+  }
+
+
 }
