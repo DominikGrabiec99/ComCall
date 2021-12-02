@@ -168,3 +168,13 @@ export const getAllCourse = async (setAllCourses, setIsLoading) => {
       setIsLoading(false);
     });
 };
+
+export const getAllUsers = async (setAllUsers, setIsLoading) => {
+  firebase
+    .firestore()
+    .collection(`users`)
+    .onSnapshot((snapshot) => {
+      setAllUsers(snapshot.docs.map((doc) => ({ docId: doc.id, ...doc.data() })));
+      setIsLoading(false);
+    });
+};

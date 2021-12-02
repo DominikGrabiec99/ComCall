@@ -1,0 +1,121 @@
+.user {
+  width: 100%;
+  height: 100%;
+
+  &__box-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+
+  }
+
+  &__user-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__user-table-tr {
+    border-bottom: 1px solid rgb(109, 109, 109);
+  }
+
+  &__user-table-tr:nth-child(2n+1) {
+    background-color: rgb(58, 58, 58);
+  }
+
+  &__table-head-th {
+    padding: 0.7rem 0;
+    padding-left: 0.2rem;
+    cursor: pointer;
+  }
+
+  &__user-table-tr-head {
+    border-bottom: 1px solid rgb(109, 109, 109);
+    border-top: 1px solid rgb(109, 109, 109);
+    padding: 1rem 0;
+    background-color: rgb(0, 0, 0);
+  }
+
+  &__user-info-box {
+    padding: 1rem 0;
+    padding-left: 0.3rem;
+  }
+
+  &__user-info-box span {
+    text-overflow: ellipsis;
+  }
+
+  &__edit-user-btn {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+
+    &:hover {
+      background-color: rgb(58, 58, 58);
+    }
+  }
+
+  ///search 
+
+  &__search-box {
+    width: 100%;
+    padding: 0.3rem 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: 800px) {
+      padding: 0.3rem 1rem;
+    }
+  }
+
+  &__input-container {
+    position: relative;
+    max-width: 40%;
+    width: 200px;
+  }
+
+  &__input-search {
+    width: 100%;
+    padding: 0.4rem 0.2rem;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  &__input-search::placeholder {
+    font-size: 1rem;
+    color: rgb(170, 170, 170);
+  }
+
+  &__icon-search {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+  }
+
+  &__btn-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    background-color: transparent;
+    color: white;
+    padding: 0.3rem 0.4rem;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+}

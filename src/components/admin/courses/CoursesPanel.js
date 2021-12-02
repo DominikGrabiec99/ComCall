@@ -18,7 +18,7 @@ const CoursesPanel = () => {
   const [allCourses, setAllCourses] = useState([]);
   const [arrayLevel, setArrayLevel] = useState([]);
   const [actualCourse, setActualCourse] = useState({});
-  const [serachValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const [isVisibleRadio, setIsVisibleRadio] = useState(false);
   const [radioInputValue, setRadioInputValue] = useState('all');
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +64,7 @@ const CoursesPanel = () => {
   return (
     <>
       <Search
-        serachValue={serachValue}
+        searchValue={searchValue}
         setSearchValue={setSearchValue}
         arrayLevel={arrayLevel}
         radioInputValue={radioInputValue}
@@ -80,11 +80,11 @@ const CoursesPanel = () => {
         {allCourses.length !== 0 &&
           allCourses
             .filter((course) => {
-              if (serachValue === '') {
+              if (searchValue === '') {
                 return course;
               }
 
-              if (course.name.toLowerCase().includes(serachValue.toLowerCase())) {
+              if (course.name.toLowerCase().includes(searchValue.toLowerCase())) {
                 return course;
               }
 

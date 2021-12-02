@@ -9,20 +9,18 @@ import { default as CoursesStyles } from '../../../styles/admin/Courses.module.s
 const block = bemCssModules(CoursesStyles);
 
 const Search = ({
-  serachValue,
+  searchValue,
   setSearchValue,
   arrayLevel,
   radioInputValue,
-  setRadioInputValue,
-  isVisibleRadio,
-  setIsVisibleRadio
+  setRadioInputValue
 }) => (
   <div className={block('search-container')}>
     <div>
       <div className={block('search-box')}>
         <input
           type="text"
-          value={serachValue}
+          value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           placeholder="Find course"
           className={block('search-input')}
@@ -58,11 +56,9 @@ const Search = ({
 export default Search;
 
 Search.propTypes = {
-  serachValue: PropTypes.string,
+  searchValue: PropTypes.string,
   setSearchValue: PropTypes.func,
   arrayLevel: PropTypes.array,
   radioInputValue: PropTypes.string,
-  setRadioInputValue: PropTypes.func,
-  isVisibleRadio: PropTypes.bool,
-  setIsVisibleRadio: PropTypes.func
+  setRadioInputValue: PropTypes.func
 };
