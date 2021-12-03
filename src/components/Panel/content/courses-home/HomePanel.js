@@ -23,6 +23,10 @@ const HomePanel = () => {
     }
 
     getCoursesArray();
+
+    return () => {
+      setArrayCourse(null);
+    };
   }, [user]);
 
   // eslint-disable-next-line no-nested-ternary

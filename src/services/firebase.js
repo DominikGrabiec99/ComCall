@@ -75,6 +75,22 @@ export const getCoursesByCourseId = async (courseId) => {
   return course;
 };
 
+export const getCoursesByName = async (name) => {
+  const result = await firebase
+    .firestore()
+    .collection('courses')
+    .where('name', '>=', name)
+    .where('name', '<=', `${name}\uf8ff`)
+    .get();
+
+  const course = result.docs.map((item) => ({
+    ...item.data(),
+    docId: item.id
+  }));
+
+  return course;
+};
+
 /// get messages
 
 export const getMessagesByUserId = async (userUid, userToMessage, setMessages) => {

@@ -8,6 +8,7 @@ import { getAllUsers } from '../../../services/firebase';
 
 // eslint-disable-next-line import/no-named-default
 import { default as CoursesStyles } from '../../../styles/admin/Users.module.scss';
+import AddUser from './AddUser';
 
 const block = bemCssModules(CoursesStyles);
 
@@ -32,20 +33,30 @@ const UsersPanel = () => {
   }, []);
 
   return (
-    <div className={block()}>
-      <Search
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        setIsAddUserPanelVisible={setIsAddUserPanelVisible}
-      />
-      <UsersList
-        allUsers={allUsers}
-        isLoading={isLoading}
-        searchValue={searchValue}
-        setChosenUser={setChosenUser}
-        setIsAddUserPanelVisible={setIsAddUserPanelVisible}
-      />
-    </div>
+    <>
+      <div className={block()}>
+        <Search
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          setIsAddUserPanelVisible={setIsAddUserPanelVisible}
+        />
+        <UsersList
+          allUsers={allUsers}
+          isLoading={isLoading}
+          searchValue={searchValue}
+          setChosenUser={setChosenUser}
+          setIsAddUserPanelVisible={setIsAddUserPanelVisible}
+        />
+      </div>
+      {isAddUserPanelVisible && (
+        <AddUser
+          setIsAddUserPanelVisible={setIsAddUserPanelVisible}
+          setChosenUser={setChosenUser}
+          {...chosenUser}
+          chosenUser={chosenUser}
+        />
+      )}
+    </>
   );
 };
 

@@ -52,8 +52,6 @@ const AddCourse = ({
   const handleOnDeletedCourse = (e) => {
     e.preventDefault();
 
-    console.log(actualCourse.courseId);
-
     if (Object.keys(actualCourse).length === 0) {
       return null;
     }
