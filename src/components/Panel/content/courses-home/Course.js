@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
 import bemCssModules from 'bem-css-modules';
-import * as ROUTS from '../../../../constans/routes';
 
 // eslint-disable-next-line import/no-named-default
 import { default as CoursesStyle } from '../../../../styles/panel/content/Courses.module.scss';

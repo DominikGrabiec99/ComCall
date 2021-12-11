@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState, useRef, useContext, useEffect } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import bemCssModules from 'bem-css-modules';
 import { NavLink } from 'react-router-dom';
 import { sidebarOption, sidebarOptionAdmin } from '../../constans/text';

@@ -36,6 +36,10 @@ const Message = ({ docId, text, author, time, courseMess }) => {
     }
 
     getUserById();
+
+    return () => {
+      setUserMessage({});
+    };
   }, []);
 
   return (

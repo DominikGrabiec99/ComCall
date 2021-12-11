@@ -49,6 +49,11 @@ const DocumentPanel = () => {
     }
 
     getCoursesArray();
+
+    return () => {
+      setIsLoading(true);
+      setArrayCourse([]);
+    };
   }, [user]);
 
   useEffect(() => {

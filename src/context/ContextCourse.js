@@ -28,6 +28,10 @@ const ContextCourse = ({ children }) => {
     }
 
     getCourseById();
+
+    return () => {
+      setCourse([]);
+    };
   }, [id]);
 
   useEffect(() => {
@@ -38,6 +42,10 @@ const ContextCourse = ({ children }) => {
     }
 
     getUserById();
+
+    return () => {
+      setUserActual(null);
+    };
   }, [userCourse]);
 
   useEffect(() => {

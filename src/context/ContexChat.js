@@ -88,6 +88,10 @@ const ContextChat = ({ children }) => {
     }
 
     getMessages();
+
+    return () => {
+      setMessages([]);
+    };
   }, [userToMessage]);
 
   useEffect(() => {
@@ -96,6 +100,10 @@ const ContextChat = ({ children }) => {
     }
 
     getUser();
+
+    return () => {
+      setFindedUser([]);
+    };
   }, [searchUser]);
 
   useEffect(() => {
@@ -107,6 +115,10 @@ const ContextChat = ({ children }) => {
     } else {
       setIsLoading(false);
     }
+    return () => {
+      setIsLoading(true);
+      setFirstMessages([]);
+    };
   }, []);
 
   useEffect(() => {

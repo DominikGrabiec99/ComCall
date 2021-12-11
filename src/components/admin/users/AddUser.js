@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import bemCssModules from 'bem-css-modules';
 import { v1 as uuid } from 'uuid';
-
 import Firebase from 'firebase/compat/app';
+import { getCoursesByName, getCoursesByCourseId } from '../../../services/firebase';
 
 import Course from './Course';
 
@@ -11,7 +11,6 @@ import FirebaseContext from '../../../context/firebase';
 
 // eslint-disable-next-line import/no-named-default
 import { default as CoursesStyles } from '../../../styles/admin/Users.module.scss';
-import { getCoursesByName, getCoursesByCourseId } from '../../../services/firebase';
 
 const block = bemCssModules(CoursesStyles);
 
@@ -232,8 +231,6 @@ const AddUser = ({
       return null;
     });
   }, [coursesState]);
-
-  console.log(newCourse);
 
   return (
     <article className={block('user-edit')}>
