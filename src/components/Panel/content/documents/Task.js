@@ -14,7 +14,7 @@ const Task = ({ name, description, time, subject, task, setCurrentDocument, widt
 
   const d = new Date(Number(time));
   const year = d.getFullYear();
-  const month = d.getMonth();
+  const month = d.getMonth() + 1;
   const day = d.getDate();
   const hour = d.getHours();
   const minuts = d.getMinutes();

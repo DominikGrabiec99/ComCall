@@ -7,6 +7,8 @@ import UserContext from '../../../context/user';
 
 import ListTasks from './documents/ListTasks';
 import AddDocument from './documents/AddDocument';
+import Loading from '../../Loading';
+import AnswersForTeacher from './documents/AnswersForTeacher';
 
 // eslint-disable-next-line import/no-named-default
 import { default as DocumentStyles } from '../../../styles/panel/content/Document.module.scss';
@@ -14,7 +16,7 @@ import { default as DocumentStyles } from '../../../styles/panel/content/Documen
 const block = bemCssModules(DocumentStyles);
 
 const DocumentPanel = () => {
-  const { user } = useContext(UserContext);
+  const { user, actualUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
   const [arrayCourse, setArrayCourse] = useState(null);
   const [arrayTasks, setArrayTasks] = useState([]);
@@ -90,6 +92,18 @@ const DocumentPanel = () => {
   useEffect(() => {
     setIsSend(false);
   }, [currentDocument]);
+
+  if (actualUser === 'undefined' || actualUser.length === 0) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
+  if (actualUser && actualUser[0].isTeacher) {
+    return <AnswersForTeacher arrayCourse={arrayCourse} />;
+  }
 
   return (
     <div className={block()}>

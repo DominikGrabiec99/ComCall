@@ -1,7 +1,6 @@
 .room {
   display: grid;
-  min-height: 91.5vh;
-  max-height: 91.5vh;
+  height: 91.5vh;
   grid-template-rows: 1fr auto;
   grid-template-columns: auto;
 
@@ -18,7 +17,6 @@
 
     @media (min-width: 950px) {
       order: 2;
-      // height: 100%;
     }
   }
 
@@ -35,8 +33,13 @@
   }
 
   &__users-box-room-2-1 {
-    // grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
+
+    @media (min-width: 950px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+    }
   }
 
   &__users-box-room-2 {
@@ -72,7 +75,7 @@
     justify-content: center;
     align-items: center;
     background: url('user.png') center center no-repeat;
-    
+    height: 100%;
   }
 
   &__user-view:hover &__user-name-box {
@@ -100,11 +103,9 @@
     height: 100%;
 
     @media (min-width: 950px) {
-      // height: max-content;
-      // width: fit-content;
-      // width: max-content;
-      // width: auto;
-     object-fit: contain;
+      width: auto;
+      height: auto;
+      object-fit: contain;
     }
   }
 

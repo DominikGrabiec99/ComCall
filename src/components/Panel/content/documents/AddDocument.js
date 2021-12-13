@@ -53,7 +53,7 @@ const AddDocument = ({ currentDocument, width, handleOnSubmit, isSend }) => {
       <p className={block('addDocument__time')}>
         {isOldTask ? 'Time is up at' : 'Time to end'}: {timeTask}
       </p>
-      <form className={block('addDocument__form')} onSubmit={handleOnSubmit}>
+      <form onSubmit={handleOnSubmit}>
         <div className={block('add-file-box')}>
           <p className={block('text-add-file')}>Add file:</p>
           {!isOldTask ? (

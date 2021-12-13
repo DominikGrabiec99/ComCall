@@ -10,7 +10,9 @@ const block = bemCssModules(HomeStyles);
 
 const HomePanel = () => (
   <div className={block()}>
+    <h2 className={block('header-title')}>New Users</h2>
     <UsersChart />
+    <h2 className={block('header-title')}>Users in Courses</h2>
     <CoursesChart />
   </div>
 );

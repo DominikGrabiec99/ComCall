@@ -184,6 +184,8 @@ const RoomContent = () => {
     return { backgroundColor: `hsl(${color}deg, 50%, 10%)` };
   };
 
+  console.log(peers);
+
   return (
     <section className={block('content-room')}>
       <div className={`${block('users-box-room')} ${block(checkPeersLength())}`}>

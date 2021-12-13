@@ -3,6 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
 
 import { getAllCourse } from '../../../services/firebase';
+import Loading from '../../Loading';
 
 const CoursesChart = () => {
   const [allCourses, setAllCourses] = useState([]);
@@ -34,6 +35,14 @@ const CoursesChart = () => {
     setArrayForChart(table);
   }, [allCourses]);
 
+  if (isLoaading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div>
       <Bar
@@ -59,12 +68,6 @@ const CoursesChart = () => {
           scales: {
             x: {
               beginAtZero: true
-            }
-          },
-          plugins: {
-            title: {
-              display: true,
-              text: 'Users in Courses'
             }
           }
         }}

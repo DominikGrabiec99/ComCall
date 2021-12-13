@@ -72,7 +72,7 @@ const Login = () => {
                 Forgot password
               </Link>
               <button type="submit" className={block('btn-submit')} disabled={isValid}>
-                Log in
+                Login Now
               </button>
             </form>
             <p className={block('par')}>

@@ -56,7 +56,7 @@ const ContextCourse = ({ children }) => {
 
   useEffect(() => {
     if (scroll.current) {
-      scroll.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      scroll.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [scroll.current]);
 

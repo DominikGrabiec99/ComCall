@@ -142,7 +142,8 @@ const AddCourse = ({
             subject: subjectState,
             tasks: [],
             time: Number(timeState),
-            users: []
+            users: [],
+            answers: []
           })
           .then(() => {
             setMessage('');

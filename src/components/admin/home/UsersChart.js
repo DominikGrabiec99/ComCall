@@ -4,6 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
 
 import { getAllUsers } from '../../../services/firebase';
+import Loading from '../../Loading';
 
 const UsersChart = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -54,6 +55,14 @@ const UsersChart = () => {
     setArrayForChart(table);
   }, [allUsersDate]);
 
+  if (isLoaading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div>
       <Bar
@@ -82,12 +91,6 @@ const UsersChart = () => {
             },
             y: {
               beginAtZero: true
-            }
-          },
-          plugins: {
-            title: {
-              display: true,
-              text: 'New Users'
             }
           }
         }}

@@ -157,4 +157,224 @@
     font-size: 0.8rem;
     color: red;
   }
+
+  /// teacher 
+
+  &__box-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+
+  }
+
+  &__user-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__user-table-tr {
+    border-bottom: 1px solid rgb(109, 109, 109);
+    text-align: center;
+  }
+
+  &__user-table-tr:nth-child(2n+1) {
+    background-color: rgb(58, 58, 58);
+    width: 100%;
+
+  }
+
+  &__table-head-th {
+    padding: 0.7rem 0;
+    padding-left: 0.2rem;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  &__user-table-tr-head {
+    border-bottom: 1px solid rgb(109, 109, 109);
+    border-top: 1px solid rgb(109, 109, 109);
+    padding: 1rem 0;
+    background-color: rgb(0, 0, 0);
+  }
+
+  &__user-info-box {
+    padding: 1rem 0;
+    padding-left: 0.3rem;
+  }
+
+  &__user-info-box span {
+    text-overflow: ellipsis;
+  }
+
+  &__btn-table {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    text-decoration: underline;
+
+    &:nth-child(2n+1) {
+      &:hover {
+        background-color: rgb(49, 49, 49);
+      }
+    }
+
+    &:hover {
+      background-color: rgb(58, 58, 58);
+    }
+  }
+
+  &__search-box {
+    width: 100%;
+    padding: 0.4rem 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__input-container {
+    position: relative;
+    max-width: 80%;
+    width: 300px;
+  }
+
+  &__input-search {
+    width: 100%;
+    padding: 0.4rem 0.2rem;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  &__input-search::placeholder {
+    font-size: 1rem;
+    color: rgb(170, 170, 170);
+  }
+
+  &__icon-search {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+  }
+
+  &__answer-form-bg {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__answer-form-container {
+    background-color: rgb(29, 29, 29);
+    width: 98%;
+    height: 98%;
+    border-radius: 5px;
+    border: 0.5px solid white;
+    position: relative;
+
+    @media (min-width:900px) {
+      width: 35%;
+      height: 65%;
+    }
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__box-from {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__box-form-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__btn-download {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(168, 168, 168);
+    color: rgb(168, 168, 168);
+    padding-bottom: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &:hover {
+      border-color: rgb(121, 121, 121);
+      color: rgb(121, 121, 121);
+    }
+  }
+
+  &__form-rate-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__form-label {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 0.4rem;
+    font-size: 1.1rem;
+    color: rgb(141, 141, 141);
+  }
+
+  &__form-input {
+    resize: none;
+    width: 100%;
+    background-color: rgb(26, 26, 26);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    margin: 0.4rem 0;
+    padding: 0.3rem 0.2rem;
+    color: white;
+  }
+
+  &__form-input-number {
+    width: 80px;
+  }
+
+  &__form-submit-btn {
+    background-color: rgb(48, 102, 43);
+    padding: 0.4rem 0.8rem;
+    text-transform: uppercase;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: rgb(34, 73, 30);
+    }
+  }
 }

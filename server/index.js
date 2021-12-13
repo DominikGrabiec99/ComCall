@@ -45,6 +45,15 @@ io.on('connection', (socket) => {
     });
   });
 
+  socket.on('user-disconnect', (userId) => {
+    const roomID = socketToRoom[socket.id];
+    let room = users[roomID];
+    if (room) {
+      room = room.filter((id) => id !== userId);
+      users[roomID] = room;
+    }
+  });
+
   socket.on('disconnect', () => {
     const roomID = socketToRoom[socket.id];
     let room = users[roomID];

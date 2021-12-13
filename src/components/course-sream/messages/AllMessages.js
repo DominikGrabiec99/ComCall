@@ -19,8 +19,8 @@ const AllMessages = () => {
 
   if (!isLoading && course[0].messages.length === 0) {
     return (
-      <div className={block('no-messages-box')}>
-        <p className={block('no-messages')}>There are no messages. Write a message</p>
+      <div>
+        <p className={block('no-messages')}>There are not messages. Write a message</p>
       </div>
     );
   }

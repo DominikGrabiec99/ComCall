@@ -9,11 +9,10 @@ const block = bemCssModules(CourseStyles);
 
 const HeaderCourse = () => {
   const { course } = useContext(courseGlobal);
-  const { name } = course[0];
 
   return (
     <header className={block('header-course')}>
-      <h1 className={block('header-name')}>{name}</h1>
+      <h1 className={block('header-name')}>{course[0] && course[0].name}</h1>
     </header>
   );
 };

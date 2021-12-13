@@ -24,7 +24,7 @@ const MessagessPanel = () => {
 
   if (Object.keys(userToMessage).length === 0 && !isLoading) {
     return (
-      <div className={`${block('box-message')} ${block('box-message-transparent')}`}>
+      <div className={`${block('box-message-transparent')}`}>
         <p className={block('text')}>You have not chosen any conversation. Please select a user</p>
       </div>
     );
@@ -32,7 +32,7 @@ const MessagessPanel = () => {
 
   if (messages === undefined) {
     return (
-      <div className={`${block('box-message')} ${block('box-message-transparent')}`}>
+      <div className={`${block('box-message-transparent')}`}>
         <p className={block('text')}>You have not chosen any conversation. Please select a user</p>
       </div>
     );
@@ -44,7 +44,7 @@ const MessagessPanel = () => {
 
   if (Object.keys(userToMessage).length !== 0 && messages.length === 0 && !isLoading) {
     return (
-      <div className={block('box-message')}>
+      <div>
         <div className={block('userToMessage-display')}>
           <img
             src="/images/avatars/avatar.png"
@@ -59,7 +59,7 @@ const MessagessPanel = () => {
   }
 
   return (
-    <div className={block('box-message')}>
+    <div>
       <div className={block('userToMessage-display')}>
         <img
           src="/images/avatars/avatar.png"
