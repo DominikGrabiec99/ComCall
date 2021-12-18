@@ -14,10 +14,7 @@ const About = () => (
       <h1 className={block('title')}>
         <p className={block('title-name')}>ComCall Welcome!</p>
         <p className={block('title-p')}>
-          <Link to={ROUTES.LOGIN} className={block('title-link')}>
-            Login{' '}
-          </Link>{' '}
-          to balance, organize, organize, search and share - all you can do in one place.
+          Learning, consultations, assignments - all this in one place especially for you!
         </p>
       </h1>
     </div>

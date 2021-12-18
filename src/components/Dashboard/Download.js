@@ -25,7 +25,7 @@ const Download = () => {
     <section className={block()}>
       <div className={block('box-download')}>
         <div className={block('new-person')}>
-          <h2 className={block('title-download')}>Jestes nowym urzytkownikiem?</h2>
+          <h2 className={block('title-download')}>Are you new here?</h2>
           <div>
             <Link to={ROUTES.SIGN_UP} className={block('link-signup')}>
               <button type="button" className={block('btn-signup')}>
@@ -35,7 +35,7 @@ const Download = () => {
           </div>
         </div>
         <div className={block('box-about')}>
-          <h2 className={block('title-download')}>Dowiedz się jak działamy</h2>
+          <h2 className={block('title-download')}>Find out how we work</h2>
           <div className={block('box-article')}>{aboutSection}</div>
         </div>
       </div>

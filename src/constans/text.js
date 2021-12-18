@@ -4,13 +4,13 @@ export const about = [
   {
     id: 1,
     image: '/images/about/meritum.png',
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque deleniti, temporibus nulla praesentium soluta illo vero ducimus vel officia repellendus quos minus? Cum quae sit ut debitis delectus officia reiciendis.',
+    text: 'Meretium training center conducts comprehensive training in many areas, such as English, mathematics and at many levels of advancement. If you want to expand your knowledge, Meritum will be the perfect solution for you.',
     title: 'Meritum'
   },
   {
     id: 2,
     image: '/images/about/comcall.png',
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque deleniti, temporibus nulla praesentium soluta illo vero ducimus vel officia repellendus quos minus? Cum quae sit ut debitis delectus officia reiciendis.',
+    text: 'CamCall specializes in providing professional communication solutions for training companies and their users. We strive to ensure that our solutions are of the best quality and adapt to the needs of our clients.',
     title: 'ComCall'
   }
 ];
@@ -21,7 +21,7 @@ export const circleBox = [
     class: 'small-circle-top',
     icon: '/images/icons/online-learning.png',
     title: 'Learning online',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: 'Take part in live training. Ask questions to the facilitator and communicate with other participants in real time',
     images: '/images/circle-box/learning-online.png'
   },
   {
@@ -29,15 +29,15 @@ export const circleBox = [
     class: 'small-circle-bottom',
     icon: '/images/icons/chat.png',
     title: 'Chat',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: 'Communicate with course participants and teachers via text messages. You can do this at any time and check the activity of other people you want to write to.',
     images: '/images/circle-box/chat.png'
   },
   {
     id: 3,
     class: 'small-circle-left',
     icon: '/images/icons/businessmen.png',
-    title: 'Business call',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    title: 'Support call',
+    text: 'Conducts talks with our specialists and technical support. Stay up to date with updates, news and solve technical problems with us.',
     images: '/images/circle-box/buisness-call.png'
   },
   {
@@ -45,7 +45,7 @@ export const circleBox = [
     class: 'small-circle-right',
     icon: '/images/icons/google-docs.png',
     title: 'Documents',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: "Add, edit, share your files. Whether it's homework or notes. We also give you the option of sharing a document",
     images: '/images/circle-box/documents.png'
   },
   {
@@ -53,7 +53,7 @@ export const circleBox = [
     class: 'small-circle-right-bottom',
     icon: '/images/icons/phone-call.png',
     title: 'Phone Call',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: 'Make phone calls with participants or presenter at any time. During calls, you can share your screen for consultation.',
     images: '/images/circle-box/phone-call.png'
   },
   {
@@ -61,7 +61,7 @@ export const circleBox = [
     class: 'small-circle-right-top',
     icon: '/images/icons/rooms.png',
     title: 'Rooms',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: 'Meet in separate rooms with participants. Work together and make notes together, you will boast later in the forum when you return to the main room.',
     images: '/images/circle-box/rooms.png'
   },
   {
@@ -69,7 +69,7 @@ export const circleBox = [
     class: 'small-circle-left-bottom',
     icon: '/images/icons/webinar.png',
     title: 'Webinars',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: 'Take part in live and recorded webinars on our website. Learn with us new online learning opportunities and interesting facts from various areas.',
     images: '/images/circle-box/buisness-call.png'
   },
   {
@@ -77,7 +77,7 @@ export const circleBox = [
     class: 'small-circle-left-top',
     icon: '/images/icons/timetable.png',
     title: 'Calendar',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem quaerat perspiciatis optio quibusdam.',
+    text: 'Create, add and edit your daily schedule and activities thanks to the calendar. You can share it with others so they can see when you are free. The calendar will also allow you to keep track of your homework.',
     images: '/images/circle-box/calendar.png'
   }
 ];
