@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import bemCssModules from 'bem-css-modules';
 
 import AllMessages from './messages/AllMessages';

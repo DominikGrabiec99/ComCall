@@ -10,7 +10,7 @@ const block = bemCssModules(DownloadStyles);
 
 const Download = () => {
   const aboutSection = about.map((article) => (
-    <article className={`${block('article')} ${block('article-left')}`} key={article.id}>
+    <article key={article.id}>
       <section className={block('wrapper-article')}>
         <div className={block('section-box')}>
           <h3 className={block('title-article')}>{article.title}</h3>
@@ -34,7 +34,7 @@ const Download = () => {
             </Link>
           </div>
         </div>
-        <div className={block('box-about')}>
+        <div>
           <h2 className={block('title-download')}>Find out how we work</h2>
           <div className={block('box-article')}>{aboutSection}</div>
         </div>

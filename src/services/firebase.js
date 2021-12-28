@@ -1,5 +1,5 @@
 import { httpsCallable } from 'firebase/functions';
-import { FieldValue, firebase, functions } from '../lib/firebase';
+import { firebase, functions } from '../lib/firebase';
 
 /// user
 

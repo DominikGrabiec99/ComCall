@@ -12,7 +12,7 @@
 
   &__box-download {
     width: 100%;
-    min-height: 60vh;
+    min-height: 50vh;
     border-radius: 10px;
     background-color: rgb(46, 46, 46);
     padding: 0.3rem;
@@ -32,10 +32,10 @@
   &__title-download {
     text-align: center;
     font-size: 1.7rem;
-    
-      @media (min-width: 1024px) {
-        font-size: 2.4rem;
-      }
+
+    @media (min-width: 1024px) {
+      font-size: 2.4rem;
+    }
   }
 
   &__btn-signup {
@@ -87,12 +87,21 @@
 
   &__section-box {
     order: 2;
-    
+
 
     @media (min-width: 1000px) {
       order: 1;
       max-width: 60%;
     }
+  }
+
+  &__title-article {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  &__text-article {
+    font-size: 1.2rem;
   }
 
   &__img-article {
@@ -101,10 +110,11 @@
     order: 1;
     background-color: white;
     margin-bottom: 1.5rem;
+    border-radius: 6px;
 
     @media (min-width: 1000px) {
-      width: 15vw;
-      height: 15vw;
+      width: 12vw;
+      height: 12vw;
       order: 2;
       margin-bottom: 0;
     }

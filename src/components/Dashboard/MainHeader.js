@@ -1,8 +1,6 @@
 /* eslint-disable import/no-named-default */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import bemCssModules from 'bem-css-modules';
-import * as ROUTES from '../../constans/routes';
 
 import { default as MainHeaderStyles } from '../../styles/dashboard/About.module.scss';
 

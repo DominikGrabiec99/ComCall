@@ -28,6 +28,15 @@ io.on('connection', (socket) => {
     const usersInThisRoom = users[roomID].filter((id) => id !== socket.id);
 
     socket.emit('all-users', usersInThisRoom);
+
+    socket.on('disconnect', () => {
+      const roomID = socketToRoom[socket.id];
+      let room = users[roomID];
+      if (room) {
+        room = room.filter((id) => id !== socket.id);
+        users[roomID] = room;
+      }
+    });
   });
 
   socket.on('sending signal', (payload) => {
@@ -43,24 +52,6 @@ io.on('connection', (socket) => {
       id: socket.id,
       userName: payload.userName
     });
-  });
-
-  socket.on('user-disconnect', (userId) => {
-    const roomID = socketToRoom[socket.id];
-    let room = users[roomID];
-    if (room) {
-      room = room.filter((id) => id !== userId);
-      users[roomID] = room;
-    }
-  });
-
-  socket.on('disconnect', () => {
-    const roomID = socketToRoom[socket.id];
-    let room = users[roomID];
-    if (room) {
-      room = room.filter((id) => id !== socket.id);
-      users[roomID] = room;
-    }
   });
 });
 

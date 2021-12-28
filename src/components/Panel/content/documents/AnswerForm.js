@@ -11,6 +11,10 @@ const AnswerForm = ({ actualAnswer, setIsVisible, setActualAnswer }) => {
   const [commentValue, setCommentValue] = useState(actualAnswer.comment);
   const [ratingValue, setRatingValue] = useState(actualAnswer.rating);
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={block('answer-form-bg')}>
       <div className={block('answer-form-container')}>
@@ -36,7 +40,7 @@ const AnswerForm = ({ actualAnswer, setIsVisible, setActualAnswer }) => {
               </button>
             </div>
           </div>
-          <form className={block('form-rate-task')}>
+          <form className={block('form-rate-task')} onSubmit={handleOnSubmit}>
             <label htmlFor="rating" className={block('form-label')}>
               <p>Evaluate the task</p>
               <input

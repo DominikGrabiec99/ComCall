@@ -136,6 +136,8 @@ const RoomContent = () => {
             });
           });
         });
+
+      socketRef.current.on('disconnect');
     } catch (err) {
       console.log(err);
     }

@@ -3,7 +3,7 @@
   text-align: center;
   margin-bottom: 10vh;
 
-  &__wrapper{
+  &__wrapper {
     position: relative;
     width: 80%;
     min-height: 60vh;
@@ -74,7 +74,7 @@
     font-size: 1.1rem;
     background-color: transparent;
     border-bottom: 2px solid rgb(120, 166, 250);
-    color: white;  
+    color: white;
     padding: 8px 5px;
     width: 100%;
     outline: none;
@@ -92,7 +92,7 @@
     }
   }
 
- 
+
 
   &__input::placeholder {
     color: white;
@@ -120,10 +120,10 @@
     }
   }
 
-   &__btn-submit:disabled {
+  &__btn-submit:disabled {
     opacity: 0.7;
     cursor: default;
-   }
+  }
 
   &__link {
     color: rgb(120, 166, 250);
@@ -142,7 +142,7 @@
   }
 
   &__error {
-    color:rgb(255, 22, 22);
+    color: rgb(255, 22, 22);
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -158,13 +158,14 @@
 
   &__par {
     margin-bottom: 0.5rem;
-   @media (min-width: 1000px) {
-     font-size: 1.2rem;
-   }
 
-   @media (min-width: 1600px) {
-     font-size: 1.4rem;
-   }
+    @media (min-width: 1000px) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 1600px) {
+      font-size: 1.4rem;
+    }
   }
 
   &__author {
